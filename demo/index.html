@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prøv Templatisk</title>
+  <meta name="description" content="Lag en mal i byggeren og sett den inn i et dokument, rett i nettleseren. Ingenting lagres på en server." />
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+  <script type="module" crossorigin src="./assets/index-Bbyt25XB.js"></script>
+  <link rel="modulepreload" crossorigin href="./assets/store-DI3qAyaW.js">
+  <link rel="modulepreload" crossorigin href="./assets/insert-message-D-D-c4nR.js">
+  <link rel="stylesheet" crossorigin href="./assets/index-C9hTyVme.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="brand" href="../">
+        <picture>
+          <source srcset="../logo/mark-dark.svg" media="(prefers-color-scheme: dark)" />
+          <img src="../logo/mark.svg" alt="" />
+        </picture>Templatisk
+      </a>
+      <a class="back" href="../">Tilbake til forsiden</a>
+    </header>
+
+    <main>
+      <section class="intro">
+        <h1>Prøv Templatisk</h1>
+        <p class="lead">Dette er den ekte byggeren og det ekte Word-tillegget, kjørt i nettleseren din. Du er logget inn som skribent og kan endre malen eller lage egne. Ingenting lagres på noen server, og endringene dine blir bare i denne nettleseren.</p>
+        <p><button type="button" class="btn ghost" id="reset-demo">Tilbakestill demoen</button></p>
+      </section>
+
+      <p class="small-screen-note">Demoen trenger en større skjerm. Åpne denne siden på en PC eller et nettbrett i liggende format.</p>
+
+      <section class="demo-step" aria-labelledby="step-builder">
+        <h2 id="step-builder"><span class="num">1</span>Lag eller endre en mal</h2>
+        <p class="sub">Endre teksten, legg til felt med <strong>+ Tekst</strong>, <strong>+ Tall</strong> og <strong>+ Dato</strong>, og trykk <strong>Lagre mal</strong>. Nye maler må få status <strong>Produksjon</strong> for å vises for alle i Word. Skribenter kan også hente fram utkast.</p>
+        <div class="window">
+          <div class="window-bar" aria-hidden="true"><span></span><span></span><span></span><em>Byggeren</em></div>
+          <iframe id="builder-frame" class="builder-frame" src="builder.html" title="Templatisk-byggeren"></iframe>
+        </div>
+      </section>
+
+      <section class="demo-step" aria-labelledby="step-word">
+        <h2 id="step-word"><span class="num">2</span>Sett malen inn i et dokument</h2>
+        <p class="sub">Dette er et eksempel på et Word-vindu med Templatisk-tillegget åpent. Velg malen, fyll ut feltene og trykk <strong>Sett inn</strong>. Malen du nettopp lagret ligger i listen.</p>
+        <div class="word">
+          <div class="word-title" aria-hidden="true"><span></span><span></span><span></span><em>Dokument1</em></div>
+          <div class="word-ribbon" aria-hidden="true">
+            <span>Fil</span><span class="active">Hjem</span><span>Sett inn</span><span>Utforming</span><span>Referanser</span><span>Gjennomgang</span><span>Visning</span>
+          </div>
+          <div class="word-tools" aria-hidden="true">
+            <span class="tool-group">B <i>I</i> <u>U</u></span>
+            <span class="tool-group">Normal</span>
+            <span class="tool-templatisk"><img src="../logo/mark.svg" alt="" />Maler</span>
+          </div>
+          <div class="word-body">
+            <div class="word-canvas">
+              <div class="paper" id="paper" contenteditable="true" spellcheck="false" aria-label="Dokumentet. Klikk her for å velge hvor malen settes inn."><p><br></p></div>
+            </div>
+            <iframe id="addin-frame" class="addin-frame" src="addin.html" title="Templatisk-tillegget i Word"></iframe>
+          </div>
+        </div>
+        <p><button type="button" class="btn ghost" id="clear-document">Tøm dokumentet</button></p>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <span>Templatisk</span>
+      <span>Demoen er laget av de samme byggerne og tilleggene som kundene bruker.</span>
+    </div>
+  </footer>
+</body>
+</html>
