@@ -101,6 +101,7 @@
       display: block; width: 100%; box-sizing: border-box; font: inherit; color: var(--text);
       background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: 3px 7px;
     }
+    .field input { color-scheme: light dark; }
     .field input:focus { outline: 2px solid var(--primary); outline-offset: 1px; }
     .pane .btn { font: inherit; font-size: 0.8rem; font-weight: 600; padding: 0.35rem 0.9rem; border: 0; border-radius: 6px; margin-top: 0.25rem; cursor: pointer; }
     .pane .link { font: inherit; font-size: 0.8rem; color: var(--primary); background: none; border: 0; padding: 0; margin-left: 0.75rem; cursor: pointer; text-decoration: underline; }
@@ -187,8 +188,8 @@
             <form class="pane" id="demo">
               <h4>Vedtak om tilskudd</h4>
               <div class="field"><label for="demo-navn">Navn *</label><input id="demo-navn" name="navn" value="Kari Nordmann" required autocomplete="off"></div>
-              <div class="field"><label for="demo-dato">Dato *</label><input id="demo-dato" name="dato" value="08.10.2026" required autocomplete="off"></div>
-              <div class="field"><label for="demo-belop">Beløp</label><input id="demo-belop" name="belop" value="25 000" inputmode="numeric" autocomplete="off"></div>
+              <div class="field"><label for="demo-dato">Dato *</label><input id="demo-dato" name="dato" type="date" value="2026-10-08" required></div>
+              <div class="field"><label for="demo-belop">Beløp</label><input id="demo-belop" name="belop" value="25000" inputmode="decimal" autocomplete="off"></div>
               <button class="btn" type="submit">Sett inn</button>
               <button class="link" type="button" id="demo-reset" hidden>Start på nytt</button>
             </form>
@@ -294,6 +295,23 @@
         return { text: slot.textContent, className: slot.className };
       });
 
+      // Samme regler som i Word-tillegget: datoen vises på norsk i dokumentet,
+      // og beløpsfeltet tar bare imot tall, med ett komma eller punktum.
+      function formatDate(isoDate) {
+        if (!isoDate) return "";
+        return new Date(isoDate + "T00:00:00").toLocaleDateString("nb");
+      }
+
+      var amount = form.elements.belop;
+      var lastValidAmount = amount.value;
+      amount.addEventListener("input", function () {
+        if (/^-?\d*[.,]?\d*$/.test(amount.value)) {
+          lastValidAmount = amount.value;
+        } else {
+          amount.value = lastValidAmount;
+        }
+      });
+
       function showPlaceholder(slot, i) {
         slot.className = placeholders[i].className;
         slot.textContent = placeholders[i].text;
@@ -310,7 +328,8 @@
       form.addEventListener("submit", function (event) {
         event.preventDefault();
         slots.forEach(function (slot, i) {
-          var value = form.elements[slot.dataset.field].value.trim();
+          var input = form.elements[slot.dataset.field];
+          var value = input.type === "date" ? formatDate(input.value) : input.value.trim();
           if (value) showValue(slot, value);
           else showPlaceholder(slot, i);
         });
