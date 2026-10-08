@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Templatisk – maler rett inn i Word</title>
+  <meta name="description" content="Templatisk lar organisasjonen lage gjenbrukbare Word-maler i nettleseren og sette dem inn i Word med ett klikk." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --surface: #ffffff;
+      --border: #dee2e6;
+      --text: #212529;
+      --muted: #5c636a;
+      --primary: #0a58ca;
+      --primary-tint: #e7f0ff;
+      --text-tag: #c75000;
+      --text-tag-bg: #fff3e0;
+      --num-tag: #0a58ca;
+      --num-tag-bg: #e7f0ff;
+      --date-tag: #157347;
+      --date-tag-bg: #e6f4ea;
+      --shadow: 0 10px 30px rgba(16, 24, 40, 0.08);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1a1d21;
+        --surface: #25292e;
+        --border: #3a4048;
+        --text: #e2e8f0;
+        --muted: #a3b0c4;
+        --primary: #82b4f7;
+        --primary-tint: #1e3a5f;
+        --text-tag: #ffb347;
+        --text-tag-bg: #3d2a12;
+        --num-tag: #82b4f7;
+        --num-tag-bg: #1e3a5f;
+        --date-tag: #75d69c;
+        --date-tag-bg: #183527;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      }
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+    }
+    a { color: var(--primary); }
+    .wrap { max-width: 68rem; margin: 0 auto; padding: 0 1.25rem; }
+
+    header.top {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 0;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-weight: 700; font-size: 1.2rem; color: var(--text); text-decoration: none;
+    }
+    .brand img { width: 30px; height: 30px; }
+    nav.links { display: flex; gap: 1.25rem; font-size: 0.95rem; }
+    nav.links a { color: var(--muted); text-decoration: none; }
+    nav.links a:hover { color: var(--text); }
+
+    .hero {
+      display: grid; grid-template-columns: 1.05fr 1fr; gap: 3rem; align-items: center;
+      padding: 3rem 0 4.5rem;
+    }
+    .hero h1 { font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.15; margin: 0 0 1rem; letter-spacing: -0.02em; }
+    .hero p.lead { font-size: 1.15rem; color: var(--muted); margin: 0 0 1.75rem; max-width: 34rem; }
+    .btn {
+      display: inline-block; padding: 0.75rem 1.4rem; border-radius: 8px;
+      background: var(--primary); color: var(--surface); font-weight: 600; text-decoration: none;
+    }
+    .btn.ghost { background: transparent; color: var(--primary); border: 1px solid var(--border); margin-left: 0.5rem; }
+
+    /* Illustrasjon: et Word-dokument med Templatisk-panelet */
+    .mock {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+      box-shadow: var(--shadow); overflow: hidden; font-size: 0.85rem;
+    }
+    .mock-bar { display: flex; gap: 6px; padding: 10px 12px; border-bottom: 1px solid var(--border); }
+    .mock-bar span { width: 10px; height: 10px; border-radius: 50%; background: var(--border); }
+    .mock-body { display: grid; grid-template-columns: 1.4fr 1fr; min-height: 300px; }
+    .doc { padding: 1.25rem 1.4rem; border-right: 1px solid var(--border); }
+    .doc .line { height: 8px; border-radius: 4px; background: var(--border); margin: 0 0 10px; }
+    .doc p { margin: 0 0 0.75rem; }
+    .tag { border-radius: 4px; padding: 0 5px; font-weight: 600; white-space: nowrap; }
+    .tag.t { color: var(--text-tag); background: var(--text-tag-bg); }
+    .tag.n { color: var(--num-tag); background: var(--num-tag-bg); }
+    .tag.d { color: var(--date-tag); background: var(--date-tag-bg); }
+    .pane { padding: 1rem; background: var(--bg); }
+    .pane h4 { margin: 0 0 0.75rem; font-size: 0.9rem; }
+    .field { margin-bottom: 0.6rem; }
+    .field label { display: block; color: var(--muted); font-size: 0.75rem; }
+    .field div { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: 3px 7px; }
+    .pane .btn { font-size: 0.8rem; padding: 0.35rem 0.9rem; border-radius: 6px; margin-top: 0.25rem; }
+
+    section.block { padding: 4rem 0; border-top: 1px solid var(--border); }
+    section.block h2 { font-size: 1.75rem; margin: 0 0 0.5rem; letter-spacing: -0.01em; }
+    section.block > .wrap > p.sub { color: var(--muted); margin: 0 0 2.25rem; max-width: 40rem; }
+
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; counter-reset: step; }
+    .step { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; }
+    .step::before {
+      counter-increment: step; content: counter(step);
+      display: inline-grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%;
+      background: var(--primary-tint); color: var(--primary); font-weight: 700; margin-bottom: 0.75rem;
+    }
+    .step h3, .feature h3 { margin: 0 0 0.4rem; font-size: 1.1rem; }
+    .step p, .feature p { margin: 0; color: var(--muted); }
+
+    .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem 2.5rem; }
+    .feature h3::before { content: ""; display: block; width: 28px; height: 4px; border-radius: 2px; background: var(--primary); margin-bottom: 0.8rem; }
+
+    .roles { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
+    .roles th, .roles td { text-align: left; padding: 0.85rem 1.1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+    .roles tr:last-child td { border-bottom: none; }
+    .roles th { font-size: 0.85rem; color: var(--muted); font-weight: 600; background: var(--bg); }
+    .roles td:first-child { font-weight: 600; white-space: nowrap; }
+
+    .cta { text-align: center; }
+    .cta p.sub { margin-left: auto !important; margin-right: auto !important; }
+
+    footer { padding: 2rem 0 3rem; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
+    footer .wrap { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 1.5rem; }
+      .steps, .features { grid-template-columns: 1fr; }
+      nav.links { display: none; }
+    }
+    @media (max-width: 480px) {
+      .mock-body { grid-template-columns: 1fr; }
+      .doc { border-right: none; border-bottom: 1px solid var(--border); }
+      .btn.ghost { margin: 0.75rem 0 0; }
+      .roles td:first-child { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="brand" href="#"><img src="favicon.svg" alt="" />Templatisk</a>
+      <nav class="links" aria-label="Hovedmeny">
+        <a href="#slik">Slik virker det</a>
+        <a href="#funksjoner">Funksjoner</a>
+        <a href="#roller">Roller</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="hero">
+        <div>
+          <h1>Organisasjonens maler, rett inn i Word.</h1>
+          <p class="lead">Templatisk lar dere lage gjenbrukbare dokumentmaler i nettleseren. Saksbehandlerne finner dem i Word, fyller ut noen felt og setter inn ferdig tekst med ett klikk.</p>
+          <a class="btn" href="#kontakt">Ta kontakt</a>
+          <a class="btn ghost" href="#slik">Se hvordan</a>
+        </div>
+
+        <div class="mock" role="img" aria-label="Illustrasjon: et Word-dokument med Templatisk-panelet åpent ved siden av">
+          <div class="mock-bar"><span></span><span></span><span></span></div>
+          <div class="mock-body">
+            <div class="doc">
+              <div class="line" style="width:45%"></div>
+              <p>Vi viser til søknaden fra <span class="tag t">Navn</span> mottatt <span class="tag d">Dato</span>.</p>
+              <p>Det innvilges et tilskudd på <span class="tag n">Beløp</span> kroner.</p>
+              <div class="line"></div>
+              <div class="line" style="width:85%"></div>
+              <div class="line" style="width:60%"></div>
+            </div>
+            <div class="pane" aria-hidden="true">
+              <h4>Vedtak om tilskudd</h4>
+              <div class="field"><label>Navn *</label><div>Kari Nordmann</div></div>
+              <div class="field"><label>Dato *</label><div>08.10.2026</div></div>
+              <div class="field"><label>Beløp</label><div>25 000</div></div>
+              <span class="btn">Sett inn</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <section class="block" id="slik">
+    <div class="wrap">
+      <h2>Slik virker det</h2>
+      <p class="sub">To deler som henger sammen: en malbygger for dem som skriver malene, og et Word-tillegg for dem som bruker dem.</p>
+      <div class="steps">
+        <div class="step">
+          <h3>Lag malen</h3>
+          <p>Skriv malen i byggeren i nettleseren, og sett inn felt for tekst, tall og datoer der innholdet varierer.</p>
+        </div>
+        <div class="step">
+          <h3>Publiser</h3>
+          <p>Når malen er klar, publiserer du den. Utkast er bare synlige for dem som skriver maler.</p>
+        </div>
+        <div class="step">
+          <h3>Sett inn i Word</h3>
+          <p>Saksbehandleren klikker <strong>Maler</strong> på Hjem-fanen, velger malen, fyller ut feltene og klikker <strong>Sett inn</strong>.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="funksjoner">
+    <div class="wrap">
+      <h2>Funksjoner</h2>
+      <p class="sub">Laget for organisasjoner som skriver mye av det samme, og vil at det skal bli riktig hver gang.</p>
+      <div class="features">
+        <div class="feature">
+          <h3>Utfyllingsfelt</h3>
+          <p>Tekst, tall og dato blir et enkelt skjema i Word. Påkrevde felt er merket, så ingenting blir glemt.</p>
+        </div>
+        <div class="feature">
+          <h3>Gjenbrukbare deler</h3>
+          <p>Skriv standardavsnitt én gang og bruk dem i mange maler. Endrer du delen, oppdateres alle malene som bruker den.</p>
+        </div>
+        <div class="feature">
+          <h3>Flere språk</h3>
+          <p>En mal kan finnes på flere språk, for eksempel bokmål, nynorsk og engelsk. Brukeren velger språk når malen settes inn.</p>
+        </div>
+        <div class="feature">
+          <h3>Versjonshistorikk</h3>
+          <p>Åpne tidligere versjoner av en mal eller del og se hva som er endret. Slettede maler havner i papirkurven først.</p>
+        </div>
+        <div class="feature">
+          <h3>Pålogging med jobbkontoen</h3>
+          <p>Microsoft Entra ID med enkel pålogging. Ingen nye passord, og tilgang styres der dere allerede styrer den.</p>
+        </div>
+        <div class="feature">
+          <h3>Data i Norge</h3>
+          <p>Kjører som én container, for eksempel i Azure Norway East. Malene lagres hos dere, ikke hos oss.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="roller">
+    <div class="wrap">
+      <h2>Fire roller</h2>
+      <p class="sub">Rollene tildeles i Entra, så IT-avdelingen styrer tilgangen på samme sted som før.</p>
+      <table class="roles">
+        <thead>
+          <tr><th scope="col">Rolle</th><th scope="col">Kan</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Saksbehandler</td><td>Sette inn publiserte maler i Word.</td></tr>
+          <tr><td>Skribent</td><td>Lage maler og deler, og redigere og publisere sine egne.</td></tr>
+          <tr><td>Hovedskribent</td><td>Redigere og publisere alles maler, og ordne mappene.</td></tr>
+          <tr><td>Administrator</td><td>Innstillinger, språk, hendelseslogg og eksport og import.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="block cta" id="kontakt">
+    <div class="wrap">
+      <h2>Vil du prøve Templatisk?</h2>
+      <p class="sub">Ta kontakt, så viser vi hvordan det kan se ut hos dere.</p>
+      <a class="btn" href="mailto:kontakt@templatisk.no">kontakt@templatisk.no</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Templatisk</span>
+      <span>Templatisk er et tillegg for Microsoft Word.</span>
+    </div>
+  </footer>
+</body>
+</html>
