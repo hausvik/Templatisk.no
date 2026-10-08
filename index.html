@@ -6,6 +6,7 @@
   <title>Templatisk – maler rett inn i Word</title>
   <meta name="description" content="Templatisk lar organisasjonen lage gjenbrukbare Word-maler i nettleseren og sette dem inn i Word med ett klikk." />
   <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <style>
     :root {
       --bg: #f8f9fa;
@@ -61,7 +62,7 @@
       display: flex; align-items: center; gap: 0.6rem;
       font-weight: 700; font-size: 1.2rem; color: var(--text); text-decoration: none;
     }
-    .brand img { width: 30px; height: 30px; }
+    .brand img { display: block; width: 32px; height: 32px; }
     nav.links { display: flex; gap: 1.25rem; font-size: 0.95rem; }
     nav.links a { color: var(--muted); text-decoration: none; }
     nav.links a:hover { color: var(--text); }
@@ -156,7 +157,12 @@
 <body>
   <div class="wrap">
     <header class="top">
-      <a class="brand" href="#"><img src="favicon.svg" alt="" />Templatisk</a>
+      <a class="brand" href="#">
+        <picture>
+          <source srcset="logo/mark-dark.svg" media="(prefers-color-scheme: dark)" />
+          <img src="logo/mark.svg" alt="" />
+        </picture>Templatisk
+      </a>
       <nav class="links" aria-label="Hovedmeny">
         <a href="#slik">Slik virker det</a>
         <a href="#funksjoner">Funksjoner</a>
