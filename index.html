@@ -97,8 +97,17 @@
     .pane h4 { margin: 0 0 0.75rem; font-size: 0.9rem; }
     .field { margin-bottom: 0.6rem; }
     .field label { display: block; color: var(--muted); font-size: 0.75rem; }
-    .field div { background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: 3px 7px; }
-    .pane .btn { font-size: 0.8rem; padding: 0.35rem 0.9rem; border-radius: 6px; margin-top: 0.25rem; }
+    .field input {
+      display: block; width: 100%; box-sizing: border-box; font: inherit; color: var(--text);
+      background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: 3px 7px;
+    }
+    .field input:focus { outline: 2px solid var(--primary); outline-offset: 1px; }
+    .pane .btn { font: inherit; font-size: 0.8rem; font-weight: 600; padding: 0.35rem 0.9rem; border: 0; border-radius: 6px; margin-top: 0.25rem; cursor: pointer; }
+    .pane .link { font: inherit; font-size: 0.8rem; color: var(--primary); background: none; border: 0; padding: 0; margin-left: 0.75rem; cursor: pointer; text-decoration: underline; }
+    /* Innsatt tekst blinker kort, slik at man ser hva som ble fylt inn */
+    .filled { border-radius: 4px; animation: filled 1.2s ease-out; }
+    @keyframes filled { from { background: var(--text-tag-bg); } to { background: transparent; } }
+    @media (prefers-reduced-motion: reduce) { .filled { animation: none; } }
 
     section.block { padding: 4rem 0; border-top: 1px solid var(--border); }
     section.block h2 { font-size: 1.75rem; margin: 0 0 0.5rem; letter-spacing: -0.01em; }
@@ -164,26 +173,27 @@
           <a class="btn ghost" href="#slik">Se hvordan</a>
         </div>
 
-        <div class="mock" role="img" aria-label="Illustrasjon: et Word-dokument med Templatisk-panelet åpent ved siden av">
-          <div class="mock-bar"><span></span><span></span><span></span></div>
+        <section class="mock" aria-label="Prøv selv: fyll ut feltene og sett inn teksten i dokumentet">
+          <div class="mock-bar" aria-hidden="true"><span></span><span></span><span></span></div>
           <div class="mock-body">
-            <div class="doc">
+            <div class="doc" aria-live="polite">
               <div class="line" style="width:45%"></div>
-              <p>Vi viser til søknaden fra <span class="tag t">Navn</span> mottatt <span class="tag d">Dato</span>.</p>
-              <p>Det innvilges et tilskudd på <span class="tag n">Beløp</span> kroner.</p>
+              <p>Vi viser til søknaden fra <span class="tag t" data-field="navn">Navn</span> mottatt <span class="tag d" data-field="dato">Dato</span>.</p>
+              <p>Det innvilges et tilskudd på <span class="tag n" data-field="belop">Beløp</span> kroner.</p>
               <div class="line"></div>
               <div class="line" style="width:85%"></div>
               <div class="line" style="width:60%"></div>
             </div>
-            <div class="pane" aria-hidden="true">
+            <form class="pane" id="demo">
               <h4>Vedtak om tilskudd</h4>
-              <div class="field"><label>Navn *</label><div>Kari Nordmann</div></div>
-              <div class="field"><label>Dato *</label><div>08.10.2026</div></div>
-              <div class="field"><label>Beløp</label><div>25 000</div></div>
-              <span class="btn">Sett inn</span>
-            </div>
+              <div class="field"><label for="demo-navn">Navn *</label><input id="demo-navn" name="navn" value="Kari Nordmann" required autocomplete="off"></div>
+              <div class="field"><label for="demo-dato">Dato *</label><input id="demo-dato" name="dato" value="08.10.2026" required autocomplete="off"></div>
+              <div class="field"><label for="demo-belop">Beløp</label><input id="demo-belop" name="belop" value="25 000" inputmode="numeric" autocomplete="off"></div>
+              <button class="btn" type="submit">Sett inn</button>
+              <button class="link" type="button" id="demo-reset" hidden>Start på nytt</button>
+            </form>
           </div>
-        </div>
+        </section>
       </div>
     </main>
   </div>
@@ -274,5 +284,45 @@
       <span>Templatisk er et tillegg for Microsoft Word.</span>
     </div>
   </footer>
+  <script>
+    // Demoen øverst: feltene i panelet fylles inn i dokumentet når man trykker "Sett inn".
+    (function () {
+      var form = document.getElementById("demo");
+      var reset = document.getElementById("demo-reset");
+      var slots = Array.from(document.querySelectorAll(".doc [data-field]"));
+      var placeholders = slots.map(function (slot) {
+        return { text: slot.textContent, className: slot.className };
+      });
+
+      function showPlaceholder(slot, i) {
+        slot.className = placeholders[i].className;
+        slot.textContent = placeholders[i].text;
+      }
+
+      function showValue(slot, value) {
+        slot.textContent = value;
+        // Fjern og legg til klassen igjen, så animasjonen spilles av hver gang.
+        slot.className = "";
+        void slot.offsetWidth;
+        slot.className = "filled";
+      }
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        slots.forEach(function (slot, i) {
+          var value = form.elements[slot.dataset.field].value.trim();
+          if (value) showValue(slot, value);
+          else showPlaceholder(slot, i);
+        });
+        reset.hidden = false;
+      });
+
+      reset.addEventListener("click", function () {
+        slots.forEach(showPlaceholder);
+        reset.hidden = true;
+        form.elements.navn.focus();
+      });
+    })();
+  </script>
 </body>
 </html>
