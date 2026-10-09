@@ -6,13 +6,13 @@
     <title>Templatisk Builder</title>
     <!-- Applies the saved theme (THEME_STORAGE_KEY in @templatisk/core) before the page renders, as the real builder's index.html does. -->
     <script>
-      (function(){var t=localStorage.getItem("templatisk-theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark")})();
+      (function(){var t=localStorage.getItem("templatisk-theme");if(t==="dark"||(t!=="light"&&window.matchMedia&&matchMedia("(prefers-color-scheme: dark)").matches))document.documentElement.setAttribute("data-theme","dark")})();
     </script>
-    <script type="module" crossorigin src="./assets/builder-36Won2Tf.js"></script>
+    <script type="module" crossorigin src="./assets/builder-Cil9E3rw.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/store-CQSvgTrC.js">
-    <link rel="modulepreload" crossorigin href="./assets/logo-filled-BflpyK_v.js">
-    <link rel="modulepreload" crossorigin href="./assets/install-DbMyo321.js">
-    <link rel="stylesheet" crossorigin href="./assets/builder-C7Y1UOXd.css">
+    <link rel="modulepreload" crossorigin href="./assets/logo-filled-dark-B3gzlORv.js">
+    <link rel="modulepreload" crossorigin href="./assets/install-DOtJN55G.js">
+    <link rel="stylesheet" crossorigin href="./assets/builder-B2v66L_U.css">
   </head>
   <body>
     <div id="root"></div>
