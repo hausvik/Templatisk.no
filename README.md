@@ -1,6 +1,25 @@
 # Templatisk.no
-Webpage for the product and business.
 
-A single static page (`index.html`, `favicon.svg` and the logo in `logo/`), no build step and no dependencies. Open `index.html` in a browser to preview it, and host the folder on any static host (GitHub Pages, Azure Static Web Apps, Netlify, …).
+Marketing website for [Templatisk](https://templatisk.no), a template tool for Word and Outlook.
 
-`demo/` is the interactive demo at `/demo/`. It is built from the `demo/` folder of the product repo (hausvik/templatisk, `npm run build:demo`) and the output is copied here as it is. Don't edit the files in it by hand.
+The site is a single static page in Norwegian (Bokmål): `index.html`, plus `favicon.svg`, `logo/` and `og-image.png`. There is no build step and no dependencies. To preview it, open `index.html` in a browser.
+
+## Demo
+
+`demo/` is the interactive product demo, served at `/demo/`. It uses fake data only.
+
+It is a build output from the product's private repository (`npm run build:demo`) and is copied here as it is. Don't edit it by hand. Its code is bundled and minified.
+
+The product source is closed and lives in a private repository. This repository does not contain it.
+
+## Deployment
+
+A GitHub Actions workflow deploys the site to Azure Static Web Apps on every push to `main`. Pull requests get preview deployments. The deployment token is stored in the repository secrets, and nothing secret is kept in the repo.
+
+## Contact
+
+[kontakt@templatisk.no](mailto:kontakt@templatisk.no)
+
+## Copyright
+
+© Templatisk. All rights reserved. The site content, logo and demo may not be reused or redistributed without permission. No open-source licence is granted.
