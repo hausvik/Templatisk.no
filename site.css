@@ -157,10 +157,9 @@ section.block > .wrap > p.sub { color: var(--muted); margin: 0 0 2.25rem; max-wi
 .start-note { max-width: 46rem; color: var(--muted); margin: 0; }
 
 .faq { max-width: 46rem; }
-.faq details { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 0.75rem; }
-.faq summary { cursor: pointer; font-weight: 600; padding: 1rem 1.25rem; }
-.faq summary:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 10px; }
-.faq details p { margin: 0; padding: 0 1.25rem 1.1rem; color: var(--muted); }
+.faq-item { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 0.75rem; padding: 1rem 1.25rem 1.1rem; }
+section.block .faq-item h2 { font-size: 1rem; font-weight: 600; margin: 0 0 0.4rem; }
+.faq-item p { margin: 0; color: var(--muted); }
 
 .cta { text-align: center; }
 .cta p.sub { margin-left: auto !important; margin-right: auto !important; }
