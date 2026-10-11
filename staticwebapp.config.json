@@ -1,4 +1,42 @@
 {
+  "routes": [
+    {
+      "route": "/pilot.html",
+      "redirect": "/pilot",
+      "statusCode": 301
+    },
+    {
+      "route": "/pilot",
+      "rewrite": "/pilot.html"
+    },
+    {
+      "route": "/sikkerhet.html",
+      "redirect": "/sikkerhet",
+      "statusCode": 301
+    },
+    {
+      "route": "/sikkerhet",
+      "rewrite": "/sikkerhet.html"
+    },
+    {
+      "route": "/sporsmal.html",
+      "redirect": "/sporsmal",
+      "statusCode": 301
+    },
+    {
+      "route": "/sporsmal",
+      "rewrite": "/sporsmal.html"
+    },
+    {
+      "route": "/tilgjengelighet.html",
+      "redirect": "/tilgjengelighet",
+      "statusCode": 301
+    },
+    {
+      "route": "/tilgjengelighet",
+      "rewrite": "/tilgjengelighet.html"
+    }
+  ],
   "responseOverrides": {
     "404": {
       "rewrite": "/404.html"
