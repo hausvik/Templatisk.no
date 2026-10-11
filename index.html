@@ -81,6 +81,7 @@
     .wrap { max-width: 68rem; margin: 0 auto; padding: 0 1.25rem; }
 
     header.top {
+      position: relative;
       display: flex; align-items: center; justify-content: space-between;
       padding: 1.25rem 0;
     }
@@ -92,6 +93,11 @@
     nav.links { display: flex; gap: 1.25rem; font-size: 0.95rem; }
     nav.links a { color: var(--muted); text-decoration: none; }
     nav.links a:hover { color: var(--text); }
+    .menu-toggle {
+      display: none; padding: 0.5rem 0.9rem; border: 1px solid var(--border); border-radius: 8px;
+      background: transparent; color: var(--text); font: inherit; font-size: 0.95rem; cursor: pointer;
+    }
+    .menu-toggle:focus-visible, nav.links a:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
 
     .hero {
       display: grid; grid-template-columns: 1.05fr 1fr; gap: 3rem; align-items: center;
@@ -199,7 +205,14 @@
       .shots { grid-template-columns: 1fr; }
       .hero { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 1.5rem; }
       .steps, .features { grid-template-columns: 1fr; }
-      nav.links { display: none; }
+      .menu-toggle { display: inline-block; }
+      nav.links {
+        display: none; position: absolute; top: 100%; right: 0; z-index: 10;
+        flex-direction: column; gap: 0; min-width: 14rem; padding: 0.5rem;
+        background: var(--bg); border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow);
+      }
+      nav.links.open { display: flex; }
+      nav.links a { padding: 0.65rem 0.75rem; }
     }
     @media (max-width: 480px) {
       .mock-body { grid-template-columns: 1fr; }
@@ -217,7 +230,8 @@
           <img src="logo/mark.svg" alt="" />
         </picture>Templatisk
       </a>
-      <nav class="links" aria-label="Hovedmeny">
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="hovedmeny">Meny</button>
+      <nav class="links" id="hovedmeny" aria-label="Hovedmeny">
         <a href="#slik">Slik virker det</a>
         <a href="demo/">Prøv demo</a>
         <a href="#funksjoner">Funksjoner</a>
@@ -327,11 +341,11 @@
         </div>
         <div class="feature">
           <h3>Pålogging med jobbkontoen</h3>
-          <p>Microsoft Entra ID med enkel pålogging. Ingen nye passord, og tilgang styres der dere allerede styrer den.</p>
+          <p>Enkel pålogging med Microsoft Entra ID. Ingen nye passord.</p>
         </div>
         <div class="feature">
           <h3>Data i Norge</h3>
-          <p>Kjører i Azure Norway East. Hver kunde får sin egen installasjon, og malene lagres i en egen fillagring med sikkerhetskopi hver natt.</p>
+          <p>Hver kunde får sin egen installasjon i Azure Norway East. Se Sikkerhet og personvern.</p>
         </div>
       </div>
     </div>
@@ -522,6 +536,30 @@
         slots.forEach(showPlaceholder);
         reset.hidden = true;
         form.elements.navn.focus();
+      });
+    })();
+  </script>
+  <script>
+    (function () {
+      var toggle = document.querySelector('.menu-toggle');
+      var menu = document.getElementById('hovedmeny');
+
+      function setOpen(open) {
+        menu.classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+      }
+
+      toggle.addEventListener('click', function () {
+        setOpen(toggle.getAttribute('aria-expanded') !== 'true');
+      });
+      menu.addEventListener('click', function (event) {
+        if (event.target.closest('a')) setOpen(false);
+      });
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+          setOpen(false);
+          toggle.focus();
+        }
       });
     })();
   </script>
