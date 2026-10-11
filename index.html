@@ -32,36 +32,39 @@
   </script>
   <style>
     :root {
-      --bg: #f8f9fa;
+      --bg: #f8f7f4;
       --surface: #ffffff;
-      --border: #dee2e6;
-      --text: #212529;
-      --muted: #5c636a;
-      --primary: #0a58ca;
-      --primary-tint: #e7f0ff;
-      --text-tag: #b34700;
-      --text-tag-bg: #fff3e0;
-      --num-tag: #0a58ca;
-      --num-tag-bg: #e7f0ff;
-      --date-tag: #157347;
-      --date-tag-bg: #e6f4ea;
+      --border: #ddd9d0;
+      --text: #16232e;
+      --muted: #526070;
+      --primary: #16232e;
+      --on-primary: #ffffff;
+      --accent: #f3b63f;
+      --primary-tint: #fdf0cf;
+      --text-tag: #8a4b00;
+      --text-tag-bg: #fdf0cf;
+      --num-tag: #16232e;
+      --num-tag-bg: #e6ebf0;
+      --date-tag: #2f5d7c;
+      --date-tag-bg: #e3eef5;
       --shadow: 0 10px 30px rgba(16, 24, 40, 0.08);
     }
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #1a1d21;
-        --surface: #25292e;
-        --border: #3a4048;
-        --text: #e2e8f0;
-        --muted: #a3b0c4;
-        --primary: #82b4f7;
-        --primary-tint: #1e3a5f;
-        --text-tag: #ffb347;
-        --text-tag-bg: #3d2a12;
-        --num-tag: #82b4f7;
-        --num-tag-bg: #1e3a5f;
-        --date-tag: #75d69c;
-        --date-tag-bg: #183527;
+        --bg: #101a22;
+        --surface: #16232e;
+        --border: #2e3d4a;
+        --text: #e8edf1;
+        --muted: #a9b6c2;
+        --primary: #f3b63f;
+        --on-primary: #16232e;
+        --primary-tint: #3a2e12;
+        --text-tag: #f3b63f;
+        --text-tag-bg: #3a2e12;
+        --num-tag: #c5d3df;
+        --num-tag-bg: #24343f;
+        --date-tag: #8fc1e0;
+        --date-tag-bg: #1c3040;
         --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
       }
     }
@@ -104,7 +107,7 @@
     .hero p.lead { font-size: 1.15rem; color: var(--muted); margin: 0 0 1.75rem; max-width: 34rem; }
     .btn {
       display: inline-block; padding: 0.75rem 1.4rem; border-radius: 8px;
-      background: var(--primary); color: var(--surface); font-weight: 600; text-decoration: none;
+      background: var(--primary); color: var(--on-primary); font-weight: 600; text-decoration: none;
     }
     .btn.ghost { background: transparent; color: var(--primary); border: 1px solid var(--border); }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
@@ -157,7 +160,7 @@
     .step p, .feature p { margin: 0; color: var(--muted); }
 
     .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem 2.5rem; }
-    .feature h3::before { content: ""; display: block; width: 28px; height: 4px; border-radius: 2px; background: var(--primary); margin-bottom: 0.8rem; }
+    .feature h3::before { content: ""; display: block; width: 28px; height: 4px; border-radius: 2px; background: var(--accent); margin-bottom: 0.8rem; }
 
     .roles { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
     .roles th, .roles td { text-align: left; padding: 0.85rem 1.1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
