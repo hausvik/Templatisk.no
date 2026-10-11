@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tilgjengelighetserklæring, Templatisk</title>
+  <meta name="description" content="Tilgjengelighetserklæring for templatisk.no og for Templatisk-produktet: hva som er kontrollert, kjente mangler og hvordan du kontakter oss." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="canonical" href="https://www.templatisk.no/tilgjengelighet.html" />
+  <style>
+    :root {
+      --bg: #f8f9fa;
+      --border: #dee2e6;
+      --text: #212529;
+      --muted: #5c636a;
+      --primary: #0a58ca;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #1a1d21;
+        --border: #3a4048;
+        --text: #e2e8f0;
+        --muted: #a3b0c4;
+        --primary: #82b4f7;
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+      line-height: 1.6;
+    }
+    a { color: var(--primary); }
+    a:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+    .wrap { max-width: 46rem; margin: 0 auto; padding: 0 1.25rem; }
+    header.top { padding: 1.25rem 0; }
+    .brand {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-weight: 700; font-size: 1.2rem; color: var(--text); text-decoration: none;
+    }
+    .brand img { display: block; width: 32px; height: 32px; }
+    h1 { font-size: clamp(1.75rem, 4vw, 2.4rem); line-height: 1.2; margin: 1.5rem 0 0.5rem; letter-spacing: -0.02em; }
+    h2 { font-size: 1.35rem; margin: 2.25rem 0 0.5rem; }
+    p.meta { color: var(--muted); margin: 0 0 1.5rem; }
+    ul { padding-left: 1.25rem; }
+    li { margin-bottom: 0.4rem; }
+    footer { margin-top: 3rem; padding: 2rem 0 3rem; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="brand" href="/"><img src="logo/mark.svg" alt="" /><span>Templatisk</span></a>
+    </header>
+
+    <main>
+      <h1>Tilgjengelighetserklæring</h1>
+      <p class="meta">Sist oppdatert 11. oktober 2026</p>
+
+      <p>Vi vil at Templatisk skal kunne brukes av alle. Her beskriver vi hva vi har kontrollert, hva vi vet ikke fungerer godt nok ennå, og hvordan du kan si fra.</p>
+      <p>Templatisk er laget av et privat foretak og er ikke et offentlig organ. Vi har derfor ikke rapportert til Tilsynet for universell utforming av IKT (uu.no), og denne erklæringen er ingen påstand om at vi oppfyller lovkrav. Den viser hva vi faktisk har sjekket.</p>
+
+      <h2>Hva erklæringen gjelder</h2>
+      <ul>
+        <li>Nettstedet templatisk.no, inkludert forsiden.</li>
+        <li>Produktet Templatisk: malbyggeren i nettleseren og tillegget for Word og Outlook. Demoen på nettstedet er en kopi av produktet.</li>
+      </ul>
+
+      <h2>Standard vi måler mot</h2>
+      <p>Vi bruker WCAG 2.1 nivå AA som mål. Vi har ikke fått en uavhengig tredjepart til å vurdere produktet eller nettstedet.</p>
+
+      <h2>Hva som er kontrollert</h2>
+      <ul>
+        <li>Produktet: Vi gikk gjennom tillegget og malbyggeren mot WCAG 2.1 AA 1. og 2. oktober 2026. Dialoger fanger og gjenoppretter fokus og lukkes med Escape, malmenyen kan styres med tastatur, og kontrasten i feltfargene er økt. Siste automatiske kontroll fant bare én kjent merknad, som gjelder et banner som bare vises under utvikling.</li>
+        <li>Nettstedet: Vi kjørte det automatiske verktøyet axe-core (WCAG 2.0 og 2.1, nivå A og AA) mot forsiden, feilsiden, denne siden og demoen, både i lyst og mørkt tema, 11. oktober 2026.</li>
+        <li>Automatiske verktøy finner bare en del av feilene. Vi har ikke testet systematisk med skjermleser, og testen av Word-tillegget er gjort i nettleseren, ikke i selve Word.</li>
+      </ul>
+
+      <h2>Kjente mangler</h2>
+      <ul>
+        
+        <li>I demoen mangler dokumentflaten en tilgjengelig rolle, så skjermlesere kan lese opp etiketten «Dokumentet» feil eller ikke i det hele tatt.</li>
+        <li>Demoen er en kopi av produktet fra et bestemt tidspunkt. Rettelser i produktet kommer først i demoen når vi bygger den på nytt.</li>
+        <li>Vi har ikke kontrollert hvordan Word og Outlook selv presenterer det som settes inn, for eksempel tilgjengeligheten i dokumentet etter innsetting. Den som lager malen har ansvar for at innholdet er tilgjengelig.</li>
+        <li>Kontrollene er ikke komplette. Det kan finnes feil vi ikke har funnet.</li>
+      </ul>
+
+      <p>Forsiden hadde tidligere for lav kontrast (4,18:1) på de oransje feltmerkene i illustrasjonen. Det er rettet.</p>
+
+      <h2>Si fra om feil</h2>
+      <p>Opplever du at noe ikke fungerer for deg, send oss en e-post på <a href="mailto:kontakt@templatisk.no">kontakt@templatisk.no</a>. Beskriv gjerne siden, hjelpemiddelet du bruker og hva som gikk galt.</p>
+
+      <h2>Oppdatering</h2>
+      <p>Vi oppdaterer erklæringen når vi retter feil eller gjør nye kontroller.</p>
+    </main>
+
+    <footer>
+      <a href="/">Til forsiden</a>
+    </footer>
+  </div>
+</body>
+</html>
