@@ -158,6 +158,20 @@
     .roles th { font-size: 0.85rem; color: var(--muted); font-weight: 600; background: var(--bg); }
     .roles td:first-child { font-weight: 600; white-space: nowrap; }
 
+    .start-list { list-style: none; counter-reset: start; margin: 0 0 1.5rem; padding: 0; display: grid; gap: 1rem; max-width: 46rem; }
+    .start-list li {
+      counter-increment: start; background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.25rem 1.5rem 1.25rem 4rem; position: relative;
+    }
+    .start-list li::before {
+      content: counter(start); position: absolute; left: 1.25rem; top: 1.2rem;
+      display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%;
+      background: var(--primary-tint); color: var(--primary); font-weight: 700;
+    }
+    .start-list h3 { margin: 0 0 0.3rem; font-size: 1.1rem; }
+    .start-list p { margin: 0; color: var(--muted); }
+    .start-note { max-width: 46rem; color: var(--muted); margin: 0; }
+
     .faq { max-width: 48rem; }
     .faq details { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 0.75rem; }
     .faq summary { cursor: pointer; font-weight: 600; padding: 1rem 1.25rem; }
@@ -170,7 +184,12 @@
     footer { padding: 2rem 0 3rem; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
     footer .wrap { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 
+    .shots { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: start; }
+    .shots figure { margin: 0; }
+    .shots img { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow); }
+    .shots figcaption { color: var(--muted); font-size: 0.9rem; margin-top: 0.75rem; }
     @media (max-width: 860px) {
+      .shots { grid-template-columns: 1fr; }
       .hero { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 1.5rem; }
       .steps, .features { grid-template-columns: 1fr; }
       nav.links { display: none; }
@@ -197,6 +216,7 @@
         <a href="demo/">Prøv demo</a>
         <a href="#funksjoner">Funksjoner</a>
         <a href="#roller">Roller</a>
+        <a href="#kom-i-gang">Kom i gang</a>
         <a href="#faq">Spørsmål</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
@@ -236,6 +256,23 @@
       </div>
     </main>
   </div>
+
+  <section class="block" id="skjermbilder">
+    <div class="wrap">
+      <h2>Slik ser det ut</h2>
+      <p class="sub">Byggeren i nettleseren til venstre, og tillegget i Word og Outlook til høyre. Eksemplene er laget med fiktive data.</p>
+      <div class="shots">
+        <figure>
+          <img src="screenshots/builder.webp" width="1500" height="914" loading="lazy" alt="Malbyggeren i nettleseren. Malen «Svar på søknad» er åpen i editoren med utfyllingsfeltene Navn, Søknadsdato, Saksnummer og Innvilget beløp i teksten, og en gjenbrukbar del kalt Avslutning nederst. Til høyre vises malnavn, forfatter, beskrivelse og publiseringsstatus." />
+          <figcaption>Malbyggeren: skriv malen og sett inn felt og gjenbrukbare deler.</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/addin.webp" width="760" height="1400" loading="lazy" alt="Tillegget i Word og Outlook med skjemaet for malen «Svar på søknad». Feltene Navn, Søknadsdato, Saksnummer, Innvilget beløp og Telefon er fylt ut, og språket er satt til norsk bokmål." />
+          <figcaption>Tillegget: saksbehandleren fyller ut skjemaet og setter inn teksten.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
   <section class="block" id="slik">
     <div class="wrap">
@@ -306,6 +343,36 @@
           <tr><td>Administrator</td><td>Innstillinger, språk, hendelseslogg og eksport og import.</td></tr>
         </tbody>
       </table>
+    </div>
+  </section>
+
+  <section class="block" id="kom-i-gang">
+    <div class="wrap">
+      <h2>Kom i gang med en pilot</h2>
+      <p class="sub">Vi anbefaler å starte smått: en pilot med noen få maler og en liten gruppe brukere. Dere får en egen installasjon, og vi hjelper dere gjennom oppsettet.</p>
+      <ol class="start-list">
+        <li>
+          <h3>Ta kontakt</h3>
+          <p>Send en e-post til <a href="mailto:kontakt@templatisk.no">kontakt@templatisk.no</a>, så avtaler vi en pilot og hvem som skal være med.</p>
+        </li>
+        <li>
+          <h3>Vi setter opp installasjonen deres</h3>
+          <p>Dere får en egen Templatisk i Azure Norway East, med en egen adresse, for eksempel kunde.templatisk.no. Malene lagres i en egen fillagring med sikkerhetskopi hver natt.</p>
+        </li>
+        <li>
+          <h3>Dere oppretter en app i Entra</h3>
+          <p>En administrator hos dere registrerer Templatisk som en app i Microsoft Entra ID og tildeler rollene til dem som skal bruke den. Vi gir en trinn for trinn-veiledning. Hvem som får tilgang, styrer dere selv.</p>
+        </li>
+        <li>
+          <h3>Microsoft 365-administratoren laster opp tillegget</h3>
+          <p>Administratoren laster opp to manifestfiler, én for Word og én for Outlook, under Integrerte apper i administrasjonssenteret for Microsoft 365. Tillegget dukker så opp hos dem som har fått tilgang.</p>
+        </li>
+        <li>
+          <h3>Lag de første malene</h3>
+          <p>Skribentene lager maler i byggeren, publiserer dem, og saksbehandlerne setter dem inn fra Word og Outlook.</p>
+        </li>
+      </ol>
+      <p class="start-note">Pris avtaler vi sammen ut fra hva dere trenger. <a href="#kontakt">Ta kontakt</a> for en uforpliktende prat.</p>
     </div>
   </section>
 
