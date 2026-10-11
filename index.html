@@ -145,6 +145,10 @@
     .roles th { font-size: 0.85rem; color: var(--muted); font-weight: 600; background: var(--bg); }
     .roles td:first-child { font-weight: 600; white-space: nowrap; }
 
+    .privacy-title { margin: 3rem 0 0.4rem; font-size: 1.1rem; }
+    .privacy { margin: 0; color: var(--muted); max-width: 40rem; }
+    #sikkerhet .feature a { color: var(--primary); }
+
     .cta { text-align: center; }
     .cta p.sub { margin-left: auto !important; margin-right: auto !important; }
 
@@ -178,6 +182,7 @@
         <a href="demo/">Prøv demo</a>
         <a href="#funksjoner">Funksjoner</a>
         <a href="#roller">Roller</a>
+        <a href="#sikkerhet">Sikkerhet</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
     </header>
@@ -286,6 +291,41 @@
           <tr><td>Administrator</td><td>Innstillinger, språk, hendelseslogg og eksport og import.</td></tr>
         </tbody>
       </table>
+    </div>
+  </section>
+
+  <section class="block" id="sikkerhet">
+    <div class="wrap">
+      <h2>Sikkerhet og personvern</h2>
+      <p class="sub">Hver kunde får sin egen Templatisk i et eget miljø. Dataene dine blandes ikke med andres.</p>
+      <div class="features">
+        <div class="feature">
+          <h3>Data i Norge</h3>
+          <p>Hver kunde har sin egen instans i Microsoft Azure, i regionen Norge, øst. Malene, innstillingene og hendelsesloggen ligger på en egen lagringsplass som hører til den instansen.</p>
+        </div>
+        <div class="feature">
+          <h3>Pålogging med Entra</h3>
+          <p>Brukerne logger inn med Microsoft Entra, og tilgangen følger rollene dere gir i Entra. Uten pålogging får ingen se malene.</p>
+        </div>
+        <div class="feature">
+          <h3>Ingen egen brukerliste</h3>
+          <p>Templatisk lagrer ikke brukere eller passord. Hvem som er hvem, bestemmer Entra hos dere, og når noen slutter, mister de tilgangen der.</p>
+        </div>
+        <div class="feature">
+          <h3>Sikkerhetskopi</h3>
+          <p>Malene kopieres automatisk hver natt, og hver kopi beholdes i 30 dager. En slettet lagringsplass kan hentes tilbake i 14 dager.</p>
+        </div>
+        <div class="feature">
+          <h3>Hendelseslogg</h3>
+          <p>Administratorer kan se hvem som har logget inn, og hvem som har laget, endret eller slettet maler. Loggen viser at noe skjedde, ikke innholdet i malene.</p>
+        </div>
+        <div class="feature">
+          <h3>Databehandleravtale</h3>
+          <p>Trenger dere en databehandleravtale, sender vi den på forespørsel. Ta kontakt på <a href="mailto:kontakt@templatisk.no">kontakt@templatisk.no</a>.</p>
+        </div>
+      </div>
+      <h3 id="personvern" class="privacy-title">Personvern på dette nettstedet</h3>
+      <p class="privacy">Nettstedet bruker ingen informasjonskapsler og ingen statistikk- eller sporingsverktøy. Hvis du sender e-post til kontakt@templatisk.no, bruker vi opplysningene du sender bare til å svare deg, og vi gir dem ikke videre.</p>
     </div>
   </section>
 
