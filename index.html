@@ -158,6 +158,20 @@
     .roles th { font-size: 0.85rem; color: var(--muted); font-weight: 600; background: var(--bg); }
     .roles td:first-child { font-weight: 600; white-space: nowrap; }
 
+    .start-list { list-style: none; counter-reset: start; margin: 0 0 1.5rem; padding: 0; display: grid; gap: 1rem; max-width: 46rem; }
+    .start-list li {
+      counter-increment: start; background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 1.25rem 1.5rem 1.25rem 4rem; position: relative;
+    }
+    .start-list li::before {
+      content: counter(start); position: absolute; left: 1.25rem; top: 1.2rem;
+      display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%;
+      background: var(--primary-tint); color: var(--primary); font-weight: 700;
+    }
+    .start-list h3 { margin: 0 0 0.3rem; font-size: 1.1rem; }
+    .start-list p { margin: 0; color: var(--muted); }
+    .start-note { max-width: 46rem; color: var(--muted); margin: 0; }
+
     .faq { max-width: 48rem; }
     .faq details { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 0.75rem; }
     .faq summary { cursor: pointer; font-weight: 600; padding: 1rem 1.25rem; }
@@ -197,6 +211,7 @@
         <a href="demo/">Prøv demo</a>
         <a href="#funksjoner">Funksjoner</a>
         <a href="#roller">Roller</a>
+        <a href="#kom-i-gang">Kom i gang</a>
         <a href="#faq">Spørsmål</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
@@ -306,6 +321,36 @@
           <tr><td>Administrator</td><td>Innstillinger, språk, hendelseslogg og eksport og import.</td></tr>
         </tbody>
       </table>
+    </div>
+  </section>
+
+  <section class="block" id="kom-i-gang">
+    <div class="wrap">
+      <h2>Kom i gang med en pilot</h2>
+      <p class="sub">Vi anbefaler å starte smått: en pilot med noen få maler og en liten gruppe brukere. Dere får en egen installasjon, og vi hjelper dere gjennom oppsettet.</p>
+      <ol class="start-list">
+        <li>
+          <h3>Ta kontakt</h3>
+          <p>Send en e-post til <a href="mailto:kontakt@templatisk.no">kontakt@templatisk.no</a>, så avtaler vi en pilot og hvem som skal være med.</p>
+        </li>
+        <li>
+          <h3>Vi setter opp installasjonen deres</h3>
+          <p>Dere får en egen Templatisk i Azure Norway East, med en egen adresse, for eksempel kunde.templatisk.no. Malene lagres i en egen fillagring med sikkerhetskopi hver natt.</p>
+        </li>
+        <li>
+          <h3>Dere oppretter en app i Entra</h3>
+          <p>En administrator hos dere registrerer Templatisk som en app i Microsoft Entra ID og tildeler rollene til dem som skal bruke den. Vi gir en trinn for trinn-veiledning. Hvem som får tilgang, styrer dere selv.</p>
+        </li>
+        <li>
+          <h3>Microsoft 365-administratoren laster opp tillegget</h3>
+          <p>Administratoren laster opp to manifestfiler, én for Word og én for Outlook, under Integrerte apper i administrasjonssenteret for Microsoft 365. Tillegget dukker så opp hos dem som har fått tilgang.</p>
+        </li>
+        <li>
+          <h3>Lag de første malene</h3>
+          <p>Skribentene lager maler i byggeren, publiserer dem, og saksbehandlerne setter dem inn fra Word og Outlook.</p>
+        </li>
+      </ol>
+      <p class="start-note">Pris avtaler vi sammen ut fra hva dere trenger. <a href="#kontakt">Ta kontakt</a> for en uforpliktende prat.</p>
     </div>
   </section>
 
