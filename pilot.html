@@ -49,38 +49,37 @@
       <p class="sub">I piloten får dere en fullverdig installasjon med alle funksjonene, ikke en avgrenset prøveversjon. Vi anbefaler likevel å starte smått, med noen få standardtekster og en liten gruppe brukere, og utvide når dere ser at det fungerer. Pilotbeløpet trekkes fra årslisensen hvis dere fortsetter.</p>
       <ol class="start-list">
         <li>
+          <h3>Dere forteller hvilke standardtekster dere bruker mest</h3>
+          <p>Vi viser hvordan de kan se ut i Templatisk.</p>
+        </li>
+        <li>
           <h3>Vi setter opp installasjonen deres</h3>
-          <p>Dere får en egen Templatisk i Azure Norway East, med en egen adresse, for eksempel kunde.templatisk.no. Malene lagres i en egen fillagring med sikkerhetskopi hver natt.</p>
+          <p>Dere får en egen Templatisk i Norge, med en egen adresse, for eksempel kunde.templatisk.no. Standardtekstene lagres hos dere og sikkerhetskopieres hver natt.</p>
         </li>
         <li>
-          <h3>Dere oppretter en app i Entra</h3>
-          <p>En administrator hos dere registrerer Templatisk som en app i Microsoft Entra ID og tildeler rollene til dem som skal bruke den. Vi gir en trinn for trinn-veiledning. Hvem som får tilgang, styrer dere selv.</p>
+          <h3>IT hos dere kobler den til Microsoft 365</h3>
+          <p>Det er en liten jobb for en administrator. Alt IT trenger står i boksen «For IT» lenger ned på siden.</p>
         </li>
         <li>
-          <h3>Microsoft 365-administratoren laster opp tillegget</h3>
-          <p>Administratoren laster opp to manifestfiler, én for Word og én for Outlook, under Integrerte apper i administrasjonssenteret for Microsoft 365. Tillegget dukker så opp hos dem som har fått tilgang.</p>
-        </li>
-        <li>
-          <h3>Lag de første standardtekstene</h3>
-          <p>Skribentene lager maler i byggeren, publiserer dem, og saksbehandlerne setter dem inn fra Word og Outlook.</p>
+          <h3>Dere lager de første standardtekstene</h3>
+          <p>Noen få av dere lager og publiserer standardtekstene. Alle andre setter dem inn fra Word og Outlook.</p>
         </li>
       </ol>
-      <p class="start-note">Fortell oss hvilke standardtekster dere bruker mest, så viser vi hvordan de kan se ut i Templatisk.</p>
     </div>
   </section>
 
-  <section class="block" id="dette-trenger-dere">
+  <section class="block" id="dette-gjor-dere">
     <div class="wrap">
-      <h2>Dette trenger dere</h2>
-      <p class="sub">Det meste har dere trolig fra før hvis dere bruker Microsoft 365.</p>
-      <ul class="problems">
-        <li>Microsoft 365 med Word, Outlook eller begge, for dem som skal sette inn maler.</li>
-        <li>Microsoft Entra ID, som dere har i Microsoft 365. Brukerne logger inn med den vanlige jobbkontoen.</li>
-        <li>En administrator som kan registrere en app i Entra og tildele roller.</li>
-        <li>En administrator som kan laste opp tillegget under Integrerte apper i administrasjonssenteret for Microsoft 365.</li>
-        <li>Rollene kan tildeles hver enkelt bruker i Entra ID Free. Vil dere tildele roller til grupper, trenger dere Entra ID P1 eller P2.</li>
+      <h2>Dette gjør dere</h2>
+      <p class="sub">En kort liste for den som eier saken hos dere, for eksempel HR, en avdelingsleder eller kontorsjefen. Ingen av punktene krever teknisk kunnskap.</p>
+      <ul class="checklist">
+        <li>Velg noen få standardtekster dere bruker ofte, for eksempel brev, e-poster eller avtaler.</li>
+        <li>Velg en liten gruppe som skal bruke dem i hverdagen.</li>
+        <li>Pek ut en eller to personer som lager og vedlikeholder standardtekstene.</li>
+        <li>Be IT-avdelingen eller IT-leverandøren deres om oppsettet. Send dem <a href="#for-it">boksen «For IT»</a> lenger ned på siden.</li>
+        <li>La gruppen bruke Templatisk i hverdagen i piloten og si fra om det som ikke fungerer.</li>
+        <li>Etter seks måneder bestemmer dere om dere vil fortsette. Pilotbeløpet trekkes fra årslisensen.</li>
       </ul>
-      <p class="price-note">Templatisk er laget for Word og Outlook på PC, Mac og nett, men er så langt bare testet i Word på Windows. Vi anbefaler en kort prøve på de andre plattformene hos dere før dere tar det i bruk.</p>
     </div>
   </section>
 
@@ -89,6 +88,34 @@
       <h2>Pris</h2>
       <p class="sub">Fast årspris etter antall brukere, hosting inkludert. Piloten på seks måneder trekkes fra årslisensen. Ta kontakt for et tilbud, så får dere pris i løpet av en samtale.</p>
       <a class="btn" href="mailto:kontakt@templatisk.no?subject=Avtal%20et%20m%C3%B8te%20om%20Templatisk">Avtal et møte</a>
+    </div>
+  </section>
+
+  <section class="block" id="for-it">
+    <div class="wrap">
+      <aside class="it-box" aria-labelledby="for-it-tittel">
+        <p class="it-label">Teknisk</p>
+        <h2 id="for-it-tittel">For IT</h2>
+        <p class="sub">Dette er det administratoren hos dere må gjøre og ha på plass. Vi gir en trinn for trinn-veiledning.</p>
+
+        <h3>Oppsett</h3>
+        <ol class="it-steps">
+          <li>Vi setter opp en egen Templatisk i Azure Norway East, med en egen adresse, for eksempel kunde.templatisk.no. Malene lagres i en egen fillagring med sikkerhetskopi hver natt.</li>
+          <li>En administrator hos dere registrerer Templatisk som en app i Microsoft Entra ID og tildeler rollene til dem som skal bruke den. Hvem som får tilgang, styrer dere selv.</li>
+          <li>Administratoren laster opp to manifestfiler, én for Word og én for Outlook, under Integrerte apper i administrasjonssenteret for Microsoft 365. Tillegget dukker så opp hos dem som har fått tilgang.</li>
+        </ol>
+
+        <h3>Dette trenger dere</h3>
+        <p class="it-lead">Det meste har dere trolig fra før hvis dere bruker Microsoft 365.</p>
+        <ul class="it-list">
+          <li>Microsoft 365 med Word, Outlook eller begge, for dem som skal sette inn standardtekster.</li>
+          <li>Microsoft Entra ID, som dere har i Microsoft 365. Brukerne logger inn med den vanlige jobbkontoen.</li>
+          <li>En administrator som kan registrere en app i Entra og tildele roller.</li>
+          <li>En administrator som kan laste opp tillegget under Integrerte apper i administrasjonssenteret for Microsoft 365.</li>
+          <li>Rollene kan tildeles hver enkelt bruker i Entra ID Free. Vil dere tildele roller til grupper, trenger dere Entra ID P1 eller P2.</li>
+        </ul>
+        <p class="price-note">Templatisk er laget for Word og Outlook på PC, Mac og nett, men er så langt bare testet i Word på Windows. Vi anbefaler en kort prøve på de andre plattformene hos dere før dere tar det i bruk.</p>
+      </aside>
     </div>
   </section>
   </main>
