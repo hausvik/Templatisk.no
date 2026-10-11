@@ -184,7 +184,12 @@
     footer { padding: 2rem 0 3rem; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
     footer .wrap { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 
+    .shots { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: start; }
+    .shots figure { margin: 0; }
+    .shots img { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow); }
+    .shots figcaption { color: var(--muted); font-size: 0.9rem; margin-top: 0.75rem; }
     @media (max-width: 860px) {
+      .shots { grid-template-columns: 1fr; }
       .hero { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 1.5rem; }
       .steps, .features { grid-template-columns: 1fr; }
       nav.links { display: none; }
@@ -251,6 +256,23 @@
       </div>
     </main>
   </div>
+
+  <section class="block" id="skjermbilder">
+    <div class="wrap">
+      <h2>Slik ser det ut</h2>
+      <p class="sub">Byggeren i nettleseren til venstre, og tillegget i Word og Outlook til høyre. Eksemplene er laget med fiktive data.</p>
+      <div class="shots">
+        <figure>
+          <img src="screenshots/builder.webp" width="1500" height="914" loading="lazy" alt="Malbyggeren i nettleseren. Malen «Svar på søknad» er åpen i editoren med utfyllingsfeltene Navn, Søknadsdato, Saksnummer og Innvilget beløp i teksten, og en gjenbrukbar del kalt Avslutning nederst. Til høyre vises malnavn, forfatter, beskrivelse og publiseringsstatus." />
+          <figcaption>Malbyggeren: skriv malen og sett inn felt og gjenbrukbare deler.</figcaption>
+        </figure>
+        <figure>
+          <img src="screenshots/addin.webp" width="760" height="1400" loading="lazy" alt="Tillegget i Word og Outlook med skjemaet for malen «Svar på søknad». Feltene Navn, Søknadsdato, Saksnummer, Innvilget beløp og Telefon er fylt ut, og språket er satt til norsk bokmål." />
+          <figcaption>Tillegget: saksbehandleren fyller ut skjemaet og setter inn teksten.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
 
   <section class="block" id="slik">
     <div class="wrap">
