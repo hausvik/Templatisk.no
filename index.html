@@ -111,6 +111,11 @@
     }
     .btn.ghost { background: transparent; color: var(--primary); border: 1px solid var(--border); }
     .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+    .hero-note { color: var(--muted); font-size: 0.9rem; margin: 1rem 0 0; max-width: 34rem; }
+    .problems { margin: 0 0 1.5rem; padding-left: 1.25rem; max-width: 46rem; }
+    .problems li { margin-bottom: 0.6rem; }
+    .problem-end { max-width: 46rem; font-weight: 600; margin: 0; }
+    .price-note { max-width: 46rem; color: var(--muted); font-size: 0.9rem; margin: 0.75rem 0 0; }
 
     /* Illustrasjon: et Word-dokument med Templatisk-panelet */
     .mock {
@@ -147,7 +152,6 @@
     section.block { padding: 4rem 0; border-top: 1px solid var(--border); }
     section.block h2 { font-size: 1.75rem; margin: 0 0 0.5rem; letter-spacing: -0.01em; }
     section.block > .wrap > p.sub { color: var(--muted); margin: 0 0 2.25rem; max-width: 40rem; }
-    #roller p.sub { max-width: none; }
 
     .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; counter-reset: step; }
     .step { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; }
@@ -234,10 +238,10 @@
       <nav class="links" id="hovedmeny" aria-label="Hovedmeny">
         <a href="#slik">Slik virker det</a>
         <a href="demo/">Prøv demo</a>
-        <a href="#funksjoner">Funksjoner</a>
-        <a href="#roller">Roller</a>
+        <a href="#nytte">Hva dere får</a>
         <a href="#sikkerhet">Sikkerhet</a>
-        <a href="#kom-i-gang">Kom i gang</a>
+        <a href="#kom-i-gang">Pilot</a>
+        <a href="#pris">Pris</a>
         <a href="#faq">Spørsmål</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
@@ -246,13 +250,13 @@
     <main>
       <div class="hero">
         <div>
-          <h1>Ferdig maltekst i Word og Outlook, med ett klikk.</h1>
-          <p class="lead">Lag tekster med utfyllingsfelt, valglister og faste avsnitt i nettleseren. Saksbehandlerne fyller ut et lite skjema i Word eller Outlook, og teksten settes inn ferdig utfylt, på bokmål, nynorsk eller engelsk. Templatisk fungerer uavhengig av arkivsystem.</p>
+          <h1>Standardtekstene deres, ferdig utfylt i Word og Outlook.</h1>
+          <p class="lead">Slutt på å kopiere gamle brev, rette navn og håpe at ingenting ble stående igjen. Med Templatisk velger saksbehandleren en mal, fyller ut et lite skjema, og teksten settes inn ferdig utfylt, på bokmål, nynorsk eller engelsk.</p>
           <div class="hero-actions">
-            <a class="btn" href="#kontakt">Ta kontakt</a>
-            <a class="btn ghost" href="#slik">Se hvordan</a>
-            <a class="btn ghost" href="demo/">Prøv en full demo</a>
+            <a class="btn" href="demo/">Prøv demoen</a>
+            <a class="btn ghost" href="mailto:kontakt@templatisk.no?subject=Book%2020%20minutter%20om%20Templatisk">Book 20 min</a>
           </div>
+          <p class="hero-note">Fungerer uavhengig av arkivsystemet. Pålogging med jobbkontoen (Microsoft Entra ID). Eget miljø for hver kunde, i Norge.</p>
         </div>
 
         <section class="mock" aria-label="Prøv selv: fyll ut feltene og sett inn teksten i dokumentet">
@@ -279,6 +283,20 @@
       </div>
     </main>
   </div>
+
+  <section class="block" id="problem">
+    <div class="wrap">
+      <h2>Kjenner dere igjen dette?</h2>
+      <p class="sub">Der mange skriver det samme, går det ofte galt på de samme stedene.</p>
+      <ul class="problems">
+        <li>Saksbehandlere kopierer et gammelt brev og retter for hånd. Navn, datoer og beløp fra forrige sak blir stående igjen.</li>
+        <li>Standardteksten finnes i ti versjoner, og ingen vet hvilken som er riktig.</li>
+        <li>Når en formulering endres, må noen huske å oppdatere alle malene.</li>
+        <li>Nynorsk- og engelskversjonene havner ute av takt med bokmålsversjonen.</li>
+      </ul>
+      <p class="problem-end">Templatisk samler malene på ett sted, og gir saksbehandleren et skjema i stedet for en tekst å rette i.</p>
+    </div>
+  </section>
 
   <section class="block" id="skjermbilder">
     <div class="wrap">
@@ -318,54 +336,36 @@
     </div>
   </section>
 
-  <section class="block" id="funksjoner">
+  <section class="block" id="nytte">
     <div class="wrap">
-      <h2>Funksjoner</h2>
+      <h2>Hva dere får</h2>
       <p class="sub">Laget for organisasjoner som skriver mye av det samme, og vil at det skal bli riktig hver gang.</p>
       <div class="features">
         <div class="feature">
-          <h3>Utfyllingsfelt</h3>
-          <p>Tekst, tall, dato og valg blir et enkelt skjema i Word og Outlook. Påkrevde felt må fylles ut før teksten kan settes inn.</p>
+          <h3>Færre feil</h3>
+          <p>Tekst, tall, dato og valg blir et enkelt skjema. Påkrevde felt må fylles ut før teksten settes inn, og valglister gir riktig formulering hver gang.</p>
         </div>
         <div class="feature">
-          <h3>Gjenbrukbare deler</h3>
-          <p>Skriv standardavsnitt én gang og bruk dem i mange maler. Endrer du delen, oppdateres alle malene som bruker den.</p>
+          <h3>Én kilde til sannhet</h3>
+          <p>Skriv et standardavsnitt én gang og bruk det i mange maler. Endrer dere avsnittet, oppdateres alle malene som bruker det.</p>
         </div>
         <div class="feature">
-          <h3>Flere språk</h3>
-          <p>En mal kan finnes på flere språk, for eksempel bokmål, nynorsk og engelsk. Brukeren velger språk når malen settes inn.</p>
+          <h3>Flere språk i samme mal</h3>
+          <p>Bokmål, nynorsk og engelsk. Saksbehandleren velger språk når teksten settes inn.</p>
         </div>
         <div class="feature">
-          <h3>Versjonshistorikk</h3>
+          <h3>Kontroll over hvem som kan hva</h3>
+          <p>Saksbehandlere setter bare inn publiserte maler. Skribenter lager og publiserer sine egne. Rollene styrer dere selv i Entra.</p>
+        </div>
+        <div class="feature">
+          <h3>Trygt å endre</h3>
           <p>Hent fram en av de ti siste lagrede versjonene av en mal eller del. Slettede maler havner i papirkurven først.</p>
         </div>
         <div class="feature">
-          <h3>Pålogging med jobbkontoen</h3>
-          <p>Enkel pålogging med Microsoft Entra ID. Ingen nye passord.</p>
-        </div>
-        <div class="feature">
-          <h3>Data i Norge</h3>
-          <p>Hver kunde får sin egen installasjon i Azure Norway East. Se <a href="#sikkerhet">Sikkerhet og personvern</a>.</p>
+          <h3>Oversikt</h3>
+          <p>Administratorer kan se i hendelsesloggen hvem som har logget inn, og hvem som har laget, endret eller slettet maler.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="block" id="roller">
-    <div class="wrap">
-      <h2>Rollebasert</h2>
-      <p class="sub">Rollene tildeles i Entra til enkeltpersoner, eller til grupper med Entra ID P1 eller P2. Templatisk har ingen egen brukerliste.</p>
-      <table class="roles">
-        <thead>
-          <tr><th scope="col">Rolle</th><th scope="col">Kan</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Saksbehandler</td><td>Sette inn publiserte maler i Word og Outlook.</td></tr>
-          <tr><td>Skribent</td><td>Lage maler og deler, og redigere og publisere sine egne.</td></tr>
-          <tr><td>Hovedskribent</td><td>Redigere og publisere alles maler, og ordne mappene.</td></tr>
-          <tr><td>Administrator</td><td>Styre innstillinger, språk, valglister og hendelseslogg, og eksportere og importere alle maler.</td></tr>
-        </tbody>
-      </table>
     </div>
   </section>
 
@@ -406,13 +406,9 @@
 
   <section class="block" id="kom-i-gang">
     <div class="wrap">
-      <h2>Kom i gang med en pilot</h2>
-      <p class="sub">Vi anbefaler å starte smått: en pilot med noen få maler og en liten gruppe brukere. Dere får en egen installasjon, og vi hjelper dere gjennom oppsettet.</p>
+      <h2>Start med en pilot</h2>
+      <p class="sub">Vi anbefaler å starte smått: en pilot over seks måneder med noen få maler og en liten gruppe brukere. Pilotbeløpet trekkes fra årslisensen hvis dere fortsetter.</p>
       <ol class="start-list">
-        <li>
-          <h3>Ta kontakt</h3>
-          <p>Send en e-post til <a href="mailto:kontakt@templatisk.no">kontakt@templatisk.no</a>, så avtaler vi en pilot og hvem som skal være med.</p>
-        </li>
         <li>
           <h3>Vi setter opp installasjonen deres</h3>
           <p>Dere får en egen Templatisk i Azure Norway East, med en egen adresse, for eksempel kunde.templatisk.no. Malene lagres i en egen fillagring med sikkerhetskopi hver natt.</p>
@@ -430,7 +426,15 @@
           <p>Skribentene lager maler i byggeren, publiserer dem, og saksbehandlerne setter dem inn fra Word og Outlook.</p>
         </li>
       </ol>
-      <p class="start-note">Pris avtaler vi sammen ut fra hva dere trenger. <a href="#kontakt">Ta kontakt</a> for en uforpliktende prat.</p>
+      <p class="start-note">Fortell oss hvilke maler dere bruker mest, så viser vi hvordan de kan se ut i Templatisk. <a href="mailto:kontakt@templatisk.no?subject=Book%2020%20minutter%20om%20Templatisk">Book 20 min</a></p>
+    </div>
+  </section>
+
+  <section class="block" id="pris">
+    <div class="wrap">
+      <h2>Pris</h2>
+      <p class="sub">Fast årspris etter antall brukere, hosting inkludert. Piloten på seks måneder trekkes fra årslisensen. Ta kontakt for et tilbud, så får dere pris i løpet av en samtale.</p>
+      <a class="btn" href="mailto:kontakt@templatisk.no?subject=Book%2020%20minutter%20om%20Templatisk">Book 20 min</a>
     </div>
   </section>
 
@@ -457,7 +461,23 @@
         </details>
         <details>
           <summary>Hvem kan lage og endre maler?</summary>
-          <p>Det styrer dere selv med roller i Entra. Skribenter lager og publiserer sine egne maler, hovedskribenter redigerer alles maler, og administratorer styrer innstillinger. Saksbehandlere kan bare sette inn publiserte maler, og ser aldri utkast.</p>
+          <p>Det styrer dere selv med roller i Entra, til enkeltpersoner, eller til grupper med Entra ID P1 eller P2. Saksbehandlere kan bare sette inn publiserte maler, og ser aldri utkast. Skribenter lager og publiserer sine egne maler. Hovedskribenter redigerer og publiserer alles maler og ordner mappene. Administratorer styrer innstillinger, språk, valglister og hendelseslogg, og kan eksportere og importere alle maler. Templatisk har ingen egen brukerliste.</p>
+        </details>
+        <details>
+          <summary>Hva koster det?</summary>
+          <p>Fast årspris etter antall brukere, hosting inkludert. <a href="#kontakt">Ta kontakt</a> for et tilbud.</p>
+        </details>
+        <details>
+          <summary>Hva skjer med malene hvis vi slutter?</summary>
+          <p>Administratoren kan eksportere alle malene som en fil, og enkeltmaler kan eksporteres og importeres av skribentene.</p>
+        </details>
+        <details>
+          <summary>Hvor lang tid tar det å komme i gang?</summary>
+          <p>Vi avtaler en tidsplan i den første samtalen.</p>
+        </details>
+        <details>
+          <summary>Kan vi se hvem som bruker det?</summary>
+          <p>Administratorer ser en hendelseslogg over innlogginger og endringer. Loggen viser at noe skjedde, ikke innholdet i malene.</p>
         </details>
         <details>
           <summary>Hvor lagres malene?</summary>
@@ -469,9 +489,13 @@
 
   <section class="block cta" id="kontakt">
     <div class="wrap">
-      <h2>Vil du prøve Templatisk?</h2>
-      <p class="sub">Ta kontakt, så viser vi hvordan det kan se ut hos dere.</p>
-      <a class="btn" href="mailto:kontakt@templatisk.no">kontakt@templatisk.no</a>
+      <h2>Vil dere prøve?</h2>
+      <p class="sub">Start med demoen, eller book 20 minutter, så viser vi hvordan malene deres kan se ut i Word og Outlook.</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a class="btn" href="demo/">Prøv demoen</a>
+        <a class="btn ghost" href="mailto:kontakt@templatisk.no?subject=Book%2020%20minutter%20om%20Templatisk">Book 20 min</a>
+      </div>
+      <p class="price-note">Eller send en e-post til <a href="mailto:kontakt@templatisk.no">kontakt@templatisk.no</a>.</p>
     </div>
   </section>
 
