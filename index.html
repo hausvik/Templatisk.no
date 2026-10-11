@@ -145,6 +145,12 @@
     .roles th { font-size: 0.85rem; color: var(--muted); font-weight: 600; background: var(--bg); }
     .roles td:first-child { font-weight: 600; white-space: nowrap; }
 
+    .faq { max-width: 48rem; }
+    .faq details { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 0.75rem; }
+    .faq summary { cursor: pointer; font-weight: 600; padding: 1rem 1.25rem; }
+    .faq summary:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 10px; }
+    .faq details p { margin: 0; padding: 0 1.25rem 1.1rem; color: var(--muted); }
+
     .cta { text-align: center; }
     .cta p.sub { margin-left: auto !important; margin-right: auto !important; }
 
@@ -178,6 +184,7 @@
         <a href="demo/">Prøv demo</a>
         <a href="#funksjoner">Funksjoner</a>
         <a href="#roller">Roller</a>
+        <a href="#faq">Spørsmål</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
     </header>
@@ -286,6 +293,39 @@
           <tr><td>Administrator</td><td>Innstillinger, språk, hendelseslogg og eksport og import.</td></tr>
         </tbody>
       </table>
+    </div>
+  </section>
+
+  <section class="block" id="faq">
+    <div class="wrap">
+      <h2>Spørsmål og svar</h2>
+      <p class="sub">Det vi oftest får spørsmål om.</p>
+      <div class="faq">
+        <details>
+          <summary>Henger Templatisk sammen med arkivsystemet vårt?</summary>
+          <p>Nei. Templatisk setter tekst inn i Word og Outlook og er uavhengig av arkivsystem. Det som skjer med dokumentet etterpå, for eksempel å lagre det i arkivet, gjør dere slik dere gjør i dag.</p>
+        </details>
+        <details>
+          <summary>Fungerer det på Mac og i Word på nett?</summary>
+          <p>Templatisk er et vanlig Office-tillegg som er laget for Word på PC, Mac og nett. Så langt er det testet i Word på Windows, så vi anbefaler en kort prøve på de andre plattformene hos dere før dere tar det i bruk.</p>
+        </details>
+        <details>
+          <summary>Fungerer det i Outlook også?</summary>
+          <p>Ja. Et eget Outlook-tillegg setter malene inn i e-posten du skriver. Hver mal kan merkes for Word, Outlook eller begge. Outlook-tillegget er ennå ikke testet i en ekte Outlook-installasjon.</p>
+        </details>
+        <details>
+          <summary>Må vi bruke Microsoft Entra ID?</summary>
+          <p>For vanlig bruk, ja: pålogging og roller kommer fra Entra. Uten Entra kan alle med adressen lese publiserte maler, men ingen kan lage eller endre maler. Det er bare ment som en midlertidig start under oppsett.</p>
+        </details>
+        <details>
+          <summary>Hvem kan lage og endre maler?</summary>
+          <p>Det styrer dere selv med roller i Entra. Skribenter lager og publiserer sine egne maler, hovedskribenter redigerer alles maler, og administratorer styrer innstillinger. Saksbehandlere kan bare sette inn publiserte maler, og ser aldri utkast.</p>
+        </details>
+        <details>
+          <summary>Hvor lagres malene?</summary>
+          <p>Hver kunde får sin egen installasjon i Azure Norway East, og malene ligger i en egen fillagring der. Det tas sikkerhetskopi hver natt, og hver kopi beholdes i 30 dager.</p>
+        </details>
+      </div>
     </div>
   </section>
 
