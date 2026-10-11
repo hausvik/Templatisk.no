@@ -195,3 +195,11 @@ footer .wrap { display: flex; justify-content: space-between; gap: 1rem; flex-wr
 .page-head p { color: var(--muted); max-width: 40rem; margin: 0 0 2rem; }
 .teaser-link { margin: 1.5rem 0 0; }
 nav.links a[aria-current="page"] { color: var(--text); font-weight: 600; }
+
+.skip-link {
+  position: absolute; left: 0.75rem; top: -4rem; z-index: 100;
+  padding: 0.6rem 1rem; border-radius: 8px;
+  background: var(--primary); color: var(--on-primary); font-weight: 600; text-decoration: none;
+}
+.skip-link:focus { top: 0.75rem; }
+main:focus { outline: none; }

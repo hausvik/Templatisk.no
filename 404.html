@@ -44,10 +44,17 @@
       display: inline-block; padding: 0.75rem 1.4rem; border-radius: 8px;
       background: var(--primary); color: var(--on-primary); font-weight: 600; text-decoration: none;
     }
+    .skip-link {
+      position: absolute; left: 0.75rem; top: -4rem; z-index: 100;
+      padding: 0.6rem 1rem; border-radius: 8px;
+      background: var(--primary); color: var(--on-primary); font-weight: 600; text-decoration: none;
+    }
+    .skip-link:focus { top: 0.75rem; }
   </style>
 </head>
 <body>
-  <main>
+  <a class="skip-link" href="#innhold">Hopp til innhold</a>
+  <main id="innhold" tabindex="-1">
     <img src="/logo/mark.svg" alt="" />
     <h1>Siden finnes ikke</h1>
     <p>Adressen du fulgte er feil eller siden er flyttet.</p>
