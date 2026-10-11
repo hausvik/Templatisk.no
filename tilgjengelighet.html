@@ -48,15 +48,22 @@
     ul { padding-left: 1.25rem; }
     li { margin-bottom: 0.4rem; }
     footer { margin-top: 3rem; padding: 2rem 0 3rem; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
+    .skip-link {
+      position: absolute; left: 0.75rem; top: -4rem; z-index: 100;
+      padding: 0.6rem 1rem; border-radius: 8px;
+      background: var(--primary); color: var(--on-primary); font-weight: 600; text-decoration: none;
+    }
+    .skip-link:focus { top: 0.75rem; }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#innhold">Hopp til innhold</a>
   <div class="wrap">
     <header class="top">
       <a class="brand" href="/"><img src="logo/mark.svg" alt="" /><span>Templatisk</span></a>
     </header>
 
-    <main>
+    <main id="innhold" tabindex="-1">
       <h1>Tilgjengelighetserklæring</h1>
       <p class="meta">Sist oppdatert 11. oktober 2026</p>
 
