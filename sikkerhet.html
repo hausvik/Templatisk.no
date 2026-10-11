@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="nb">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sikkerhet og personvern – Templatisk</title>
+  <meta name="description" content="Hver kunde får sin egen Templatisk i et eget miljø i Azure Norway East, med pålogging via Microsoft Entra og sikkerhetskopi hver natt." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.templatisk.no/sikkerhet.html" />
+  <meta property="og:title" content="Sikkerhet og personvern – Templatisk" />
+  <meta property="og:description" content="Hver kunde får sin egen Templatisk i et eget miljø i Azure Norway East, med pålogging via Microsoft Entra og sikkerhetskopi hver natt." />
+  <meta property="og:image" content="https://www.templatisk.no/og-image.png?v=2" />
+  <meta property="og:locale" content="nb_NO" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="canonical" href="https://www.templatisk.no/sikkerhet.html" />
+  <link rel="stylesheet" href="/site.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <a class="brand" href="/">
+        <picture>
+          <source srcset="/logo/mark-dark.svg" media="(prefers-color-scheme: dark)" />
+          <img src="/logo/mark.svg" alt="" />
+        </picture>Templatisk
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="hovedmeny">Meny</button>
+      <nav class="links" id="hovedmeny" aria-label="Hovedmeny">
+        <a href="/#slik">Slik virker det</a>
+        <a href="/demo/">Prøv demo</a>
+        <a href="/sikkerhet.html" aria-current="page">Sikkerhet</a>
+        <a href="/pilot.html">Pilot og pris</a>
+        <a href="/sporsmal.html">Spørsmål</a>
+        <a href="/#kontakt">Kontakt</a>
+      </nav>
+    </header>
+  </div>
+
+  <main>
+    <div class="wrap page-head">
+      <h1>Sikkerhet og personvern</h1>
+      <p>Hver kunde får sin egen Templatisk i et eget miljø. Dataene dine blandes ikke med andres.</p>
+    </div>
+  <section class="block" id="sikkerhet">
+    <div class="wrap">
+      <div class="features">
+        <div class="feature">
+          <h3>Data i Norge</h3>
+          <p>Hver kunde har sin egen instans i Microsoft Azure, i regionen Norway East. Malene, innstillingene og hendelsesloggen ligger på en egen lagringsplass som hører til den instansen.</p>
+        </div>
+        <div class="feature">
+          <h3>Pålogging med Entra</h3>
+          <p>Brukerne logger inn med Microsoft Entra, og tilgangen følger rollene dere gir i Entra. Uten pålogging får ingen se malene.</p>
+        </div>
+        <div class="feature">
+          <h3>Ingen egen brukerliste</h3>
+          <p>Templatisk har ingen egen brukerdatabase og lagrer ingen passord. Hvem som er hvem, bestemmer Entra hos dere, og når noen slutter, mister de tilgangen der. Malene og hendelsesloggen viser bare navn og e-post til dem som har laget eller endret noe.</p>
+        </div>
+        <div class="feature">
+          <h3>Sikkerhetskopi</h3>
+          <p>Malene kopieres automatisk hver natt, og hver kopi beholdes i 30 dager. En slettet lagringsplass kan hentes tilbake i 14 dager.</p>
+        </div>
+        <div class="feature">
+          <h3>Hendelseslogg</h3>
+          <p>Administratorer kan se hvem som har logget inn, og hvem som har laget, endret eller slettet maler. Loggen viser at noe skjedde, ikke innholdet i malene.</p>
+        </div>
+        <div class="feature">
+          <h3>Databehandleravtale</h3>
+          <p>Trenger dere en databehandleravtale, ta kontakt på <a href="mailto:kontakt@templatisk.no">kontakt@templatisk.no</a>.</p>
+        </div>
+      </div>
+      <h3 id="personvern" class="privacy-title">Personvern på dette nettstedet</h3>
+      <p class="privacy">Nettstedet bruker ingen informasjonskapsler og ingen statistikk- eller sporingsverktøy. Hvis du sender e-post til kontakt@templatisk.no, bruker vi opplysningene du sender bare til å svare deg, og vi gir dem ikke videre.</p>
+    </div>
+  </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Templatisk · <a href="/tilgjengelighet.html">Tilgjengelighetserklæring</a></span>
+      <span>Templatisk er et tillegg for Microsoft Word og Outlook.</span>
+    </div>
+  </footer>
+  <script src="/menu.js"></script>
+</body>
+</html>

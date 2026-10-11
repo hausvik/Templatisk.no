@@ -30,196 +30,7 @@
     "inLanguage": ["nb", "nn", "en"]
   }
   </script>
-  <style>
-    :root {
-      --bg: #f8f7f4;
-      --surface: #ffffff;
-      --border: #ddd9d0;
-      --text: #16232e;
-      --muted: #526070;
-      --primary: #16232e;
-      --on-primary: #ffffff;
-      --accent: #f3b63f;
-      --primary-tint: #fdf0cf;
-      --text-tag: #8a4b00;
-      --text-tag-bg: #fdf0cf;
-      --num-tag: #16232e;
-      --num-tag-bg: #e6ebf0;
-      --date-tag: #2f5d7c;
-      --date-tag-bg: #e3eef5;
-      --shadow: 0 10px 30px rgba(16, 24, 40, 0.08);
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #101a22;
-        --surface: #16232e;
-        --border: #2e3d4a;
-        --text: #e8edf1;
-        --muted: #a9b6c2;
-        --primary: #f3b63f;
-        --on-primary: #16232e;
-        --primary-tint: #3a2e12;
-        --text-tag: #f3b63f;
-        --text-tag-bg: #3a2e12;
-        --num-tag: #c5d3df;
-        --num-tag-bg: #24343f;
-        --date-tag: #8fc1e0;
-        --date-tag-bg: #1c3040;
-        --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
-      }
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-      line-height: 1.6;
-    }
-    a { color: var(--primary); }
-    .wrap { max-width: 68rem; margin: 0 auto; padding: 0 1.25rem; }
-
-    header.top {
-      position: relative;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.25rem 0;
-    }
-    .brand {
-      display: flex; align-items: center; gap: 0.6rem;
-      font-weight: 700; font-size: 1.2rem; color: var(--text); text-decoration: none;
-    }
-    .brand img { display: block; width: 32px; height: 32px; }
-    nav.links { display: flex; gap: 1.25rem; font-size: 0.95rem; }
-    nav.links a { color: var(--muted); text-decoration: none; }
-    nav.links a:hover { color: var(--text); }
-    .menu-toggle {
-      display: none; padding: 0.5rem 0.9rem; border: 1px solid var(--border); border-radius: 8px;
-      background: transparent; color: var(--text); font: inherit; font-size: 0.95rem; cursor: pointer;
-    }
-    .menu-toggle:focus-visible, nav.links a:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
-
-    .hero {
-      display: grid; grid-template-columns: 1.05fr 1fr; gap: 3rem; align-items: center;
-      padding: 3rem 0 4.5rem;
-    }
-    .hero h1 { font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.15; margin: 0 0 1rem; letter-spacing: -0.02em; }
-    .hero p.lead { font-size: 1.15rem; color: var(--muted); margin: 0 0 1.75rem; max-width: 34rem; }
-    .btn {
-      display: inline-block; padding: 0.75rem 1.4rem; border-radius: 8px;
-      background: var(--primary); color: var(--on-primary); font-weight: 600; text-decoration: none;
-    }
-    .btn.ghost { background: transparent; color: var(--primary); border: 1px solid var(--border); }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-
-    /* Illustrasjon: et Word-dokument med Templatisk-panelet */
-    .mock {
-      background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
-      box-shadow: var(--shadow); overflow: hidden; font-size: 0.85rem;
-    }
-    .mock-bar { display: flex; gap: 6px; padding: 10px 12px; border-bottom: 1px solid var(--border); }
-    .mock-bar span { width: 10px; height: 10px; border-radius: 50%; background: var(--border); }
-    .mock-body { display: grid; grid-template-columns: 1.4fr 1fr; min-height: 300px; }
-    .doc { padding: 1.25rem 1.4rem; border-right: 1px solid var(--border); }
-    .doc .line { height: 8px; border-radius: 4px; background: var(--border); margin: 0 0 10px; }
-    .doc p { margin: 0 0 0.75rem; }
-    .tag { border-radius: 4px; padding: 0 5px; font-weight: 600; white-space: nowrap; }
-    .tag.t { color: var(--text-tag); background: var(--text-tag-bg); }
-    .tag.n { color: var(--num-tag); background: var(--num-tag-bg); }
-    .tag.d { color: var(--date-tag); background: var(--date-tag-bg); }
-    .pane { padding: 1rem; background: var(--bg); }
-    .pane h4 { margin: 0 0 0.75rem; font-size: 0.9rem; }
-    .field { margin-bottom: 0.6rem; }
-    .field label { display: block; color: var(--muted); font-size: 0.75rem; }
-    .field input {
-      display: block; width: 100%; box-sizing: border-box; font: inherit; color: var(--text);
-      background: var(--surface); border: 1px solid var(--border); border-radius: 5px; padding: 3px 7px;
-    }
-    .field input { color-scheme: light dark; }
-    .field input:focus { outline: 2px solid var(--primary); outline-offset: 1px; }
-    .pane .btn { font: inherit; font-size: 0.8rem; font-weight: 600; padding: 0.35rem 0.9rem; border: 0; border-radius: 6px; margin-top: 0.25rem; cursor: pointer; }
-    .pane .link { font: inherit; font-size: 0.8rem; color: var(--primary); background: none; border: 0; padding: 0; margin-left: 0.75rem; cursor: pointer; text-decoration: underline; }
-    /* Innsatt tekst blinker kort, slik at man ser hva som ble fylt inn */
-    .filled { border-radius: 4px; animation: filled 1.2s ease-out; }
-    @keyframes filled { from { background: var(--text-tag-bg); } to { background: transparent; } }
-    @media (prefers-reduced-motion: reduce) { .filled { animation: none; } }
-
-    section.block { padding: 4rem 0; border-top: 1px solid var(--border); }
-    section.block h2 { font-size: 1.75rem; margin: 0 0 0.5rem; letter-spacing: -0.01em; }
-    section.block > .wrap > p.sub { color: var(--muted); margin: 0 0 2.25rem; max-width: 40rem; }
-    #roller p.sub { max-width: none; }
-
-    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; counter-reset: step; }
-    .step { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; }
-    .step::before {
-      counter-increment: step; content: counter(step);
-      display: inline-grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%;
-      background: var(--primary-tint); color: var(--primary); font-weight: 700; margin-bottom: 0.75rem;
-    }
-    .step h3, .feature h3 { margin: 0 0 0.4rem; font-size: 1.1rem; }
-    .step p, .feature p { margin: 0; color: var(--muted); }
-
-    .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem 2.5rem; }
-    .feature h3::before { content: ""; display: block; width: 28px; height: 4px; border-radius: 2px; background: var(--accent); margin-bottom: 0.8rem; }
-
-    .roles { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; }
-    .roles th, .roles td { text-align: left; padding: 0.85rem 1.1rem; border-bottom: 1px solid var(--border); vertical-align: top; }
-    .roles tr:last-child td { border-bottom: none; }
-    .roles th { font-size: 0.85rem; color: var(--muted); font-weight: 600; background: var(--bg); }
-    .roles td:first-child { font-weight: 600; white-space: nowrap; }
-
-    .privacy-title { margin: 3rem 0 0.4rem; font-size: 1.1rem; }
-    .privacy { margin: 0; color: var(--muted); max-width: 40rem; }
-    #sikkerhet .feature a { color: var(--primary); }
-    .start-list { list-style: none; counter-reset: start; margin: 0 0 1.5rem; padding: 0; display: grid; gap: 1rem; max-width: 46rem; }
-    .start-list li {
-      counter-increment: start; background: var(--surface); border: 1px solid var(--border);
-      border-radius: 10px; padding: 1.25rem 1.5rem 1.25rem 4rem; position: relative;
-    }
-    .start-list li::before {
-      content: counter(start); position: absolute; left: 1.25rem; top: 1.2rem;
-      display: grid; place-items: center; width: 2rem; height: 2rem; border-radius: 50%;
-      background: var(--primary-tint); color: var(--primary); font-weight: 700;
-    }
-    .start-list h3 { margin: 0 0 0.3rem; font-size: 1.1rem; }
-    .start-list p { margin: 0; color: var(--muted); }
-    .start-note { max-width: 46rem; color: var(--muted); margin: 0; }
-
-    .faq { max-width: 46rem; }
-    .faq details { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; margin-bottom: 0.75rem; }
-    .faq summary { cursor: pointer; font-weight: 600; padding: 1rem 1.25rem; }
-    .faq summary:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; border-radius: 10px; }
-    .faq details p { margin: 0; padding: 0 1.25rem 1.1rem; color: var(--muted); }
-
-    .cta { text-align: center; }
-    .cta p.sub { margin-left: auto !important; margin-right: auto !important; }
-
-    footer { padding: 2rem 0 3rem; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
-    footer .wrap { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
-
-    .shots { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: start; }
-    .shots figure { margin: 0; }
-    .shots img { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow); }
-    .shots figcaption { color: var(--muted); font-size: 0.9rem; margin-top: 0.75rem; }
-    @media (max-width: 860px) {
-      .shots { grid-template-columns: 1fr; }
-      .hero { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 1.5rem; }
-      .steps, .features { grid-template-columns: 1fr; }
-      .menu-toggle { display: inline-block; }
-      nav.links {
-        display: none; position: absolute; top: 100%; right: 0; z-index: 10;
-        flex-direction: column; gap: 0; min-width: 14rem; padding: 0.5rem;
-        background: var(--bg); border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow);
-      }
-      nav.links.open { display: flex; }
-      nav.links a { padding: 0.65rem 0.75rem; }
-    }
-    @media (max-width: 480px) {
-      .mock-body { grid-template-columns: 1fr; }
-      .doc { border-right: none; border-bottom: 1px solid var(--border); }
-      .roles td:first-child { white-space: normal; }
-    }
-  </style>
+<link rel="stylesheet" href="site.css" />
 </head>
 <body>
   <div class="wrap">
@@ -232,27 +43,25 @@
       </a>
       <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="hovedmeny">Meny</button>
       <nav class="links" id="hovedmeny" aria-label="Hovedmeny">
-        <a href="#slik">Slik virker det</a>
-        <a href="demo/">Prøv demo</a>
-        <a href="#funksjoner">Funksjoner</a>
-        <a href="#roller">Roller</a>
-        <a href="#sikkerhet">Sikkerhet</a>
-        <a href="#kom-i-gang">Kom i gang</a>
-        <a href="#faq">Spørsmål</a>
-        <a href="#kontakt">Kontakt</a>
+        <a href="#slik" aria-current="page">Slik virker det</a>
+        <a href="demo/" aria-current="page">Prøv demo</a>
+        <a href="sikkerhet.html">Sikkerhet</a>
+        <a href="pilot.html">Pilot og pris</a>
+        <a href="sporsmal.html">Spørsmål</a>
+        <a href="#kontakt" aria-current="page">Kontakt</a>
       </nav>
     </header>
 
     <main>
       <div class="hero">
         <div>
-          <h1>Ferdig maltekst i Word og Outlook, med ett klikk.</h1>
-          <p class="lead">Lag tekster med utfyllingsfelt, valglister og faste avsnitt i nettleseren. Saksbehandlerne fyller ut et lite skjema i Word eller Outlook, og teksten settes inn ferdig utfylt, på bokmål, nynorsk eller engelsk. Templatisk fungerer uavhengig av arkivsystem.</p>
+          <h1>Standardtekstene deres, ferdig utfylt i Word og Outlook.</h1>
+          <p class="lead">Slutt på å kopiere gamle brev, rette navn og håpe at ingenting ble stående igjen. Med Templatisk velger saksbehandleren en mal, fyller ut et lite skjema, og teksten settes inn ferdig utfylt, på bokmål, nynorsk eller engelsk.</p>
           <div class="hero-actions">
-            <a class="btn" href="#kontakt">Ta kontakt</a>
-            <a class="btn ghost" href="#slik">Se hvordan</a>
-            <a class="btn ghost" href="demo/">Prøv en full demo</a>
+            <a class="btn" href="demo/">Prøv demoen</a>
+            <a class="btn ghost" href="mailto:kontakt@templatisk.no?subject=Avtal%20et%20m%C3%B8te%20om%20Templatisk">Avtal et møte</a>
           </div>
+          <p class="hero-note">Fungerer uavhengig av arkivsystemet. Pålogging med jobbkontoen (Microsoft Entra ID). Eget miljø for hver kunde, i Norge.</p>
         </div>
 
         <section class="mock" aria-label="Prøv selv: fyll ut feltene og sett inn teksten i dokumentet">
@@ -279,6 +88,20 @@
       </div>
     </main>
   </div>
+
+  <section class="block" id="problem">
+    <div class="wrap">
+      <h2>Kjenner dere igjen dette?</h2>
+      <p class="sub">Der mange skriver det samme, går det ofte galt på de samme stedene.</p>
+      <ul class="problems">
+        <li>Saksbehandlere kopierer et gammelt brev og retter for hånd. Navn, datoer og beløp fra forrige sak blir stående igjen.</li>
+        <li>Standardteksten finnes i ti versjoner, og ingen vet hvilken som er riktig.</li>
+        <li>Når en formulering endres, må noen huske å oppdatere alle malene.</li>
+        <li>Nynorsk- og engelskversjonene havner ute av takt med bokmålsversjonen.</li>
+      </ul>
+      <p class="problem-end">Templatisk samler malene på ett sted, og gir saksbehandleren et skjema i stedet for en tekst å rette i.</p>
+    </div>
+  </section>
 
   <section class="block" id="skjermbilder">
     <div class="wrap">
@@ -318,160 +141,81 @@
     </div>
   </section>
 
-  <section class="block" id="funksjoner">
+  <section class="block" id="nytte">
     <div class="wrap">
-      <h2>Funksjoner</h2>
+      <h2>Hva dere får</h2>
       <p class="sub">Laget for organisasjoner som skriver mye av det samme, og vil at det skal bli riktig hver gang.</p>
       <div class="features">
         <div class="feature">
-          <h3>Utfyllingsfelt</h3>
-          <p>Tekst, tall, dato og valg blir et enkelt skjema i Word og Outlook. Påkrevde felt må fylles ut før teksten kan settes inn.</p>
+          <h3>Færre feil</h3>
+          <p>Tekst, tall, dato og valg blir et enkelt skjema. Påkrevde felt må fylles ut før teksten settes inn, og valglister gir riktig formulering hver gang.</p>
         </div>
         <div class="feature">
-          <h3>Gjenbrukbare deler</h3>
-          <p>Skriv standardavsnitt én gang og bruk dem i mange maler. Endrer du delen, oppdateres alle malene som bruker den.</p>
+          <h3>Én kilde til sannhet</h3>
+          <p>Skriv et standardavsnitt én gang og bruk det i mange maler. Endrer dere avsnittet, oppdateres alle malene som bruker det.</p>
         </div>
         <div class="feature">
-          <h3>Flere språk</h3>
-          <p>En mal kan finnes på flere språk, for eksempel bokmål, nynorsk og engelsk. Brukeren velger språk når malen settes inn.</p>
+          <h3>Flere språk i samme mal</h3>
+          <p>Bokmål, nynorsk og engelsk. Saksbehandleren velger språk når teksten settes inn.</p>
         </div>
         <div class="feature">
-          <h3>Versjonshistorikk</h3>
+          <h3>Kontroll over hvem som kan hva</h3>
+          <p>Saksbehandlere setter bare inn publiserte maler. Skribenter lager og publiserer sine egne. Rollene styrer dere selv i Entra.</p>
+        </div>
+        <div class="feature">
+          <h3>Trygt å endre</h3>
           <p>Hent fram en av de ti siste lagrede versjonene av en mal eller del. Slettede maler havner i papirkurven først.</p>
         </div>
         <div class="feature">
-          <h3>Pålogging med jobbkontoen</h3>
-          <p>Enkel pålogging med Microsoft Entra ID. Ingen nye passord.</p>
-        </div>
-        <div class="feature">
-          <h3>Data i Norge</h3>
-          <p>Hver kunde får sin egen installasjon i Azure Norway East. Se <a href="#sikkerhet">Sikkerhet og personvern</a>.</p>
+          <h3>Oversikt</h3>
+          <p>Administratorer kan se i hendelsesloggen hvem som har logget inn, og hvem som har laget, endret eller slettet maler.</p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="block" id="roller">
-    <div class="wrap">
-      <h2>Rollebasert</h2>
-      <p class="sub">Rollene tildeles i Entra til enkeltpersoner, eller til grupper med Entra ID P1 eller P2. Templatisk har ingen egen brukerliste.</p>
-      <table class="roles">
-        <thead>
-          <tr><th scope="col">Rolle</th><th scope="col">Kan</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Saksbehandler</td><td>Sette inn publiserte maler i Word og Outlook.</td></tr>
-          <tr><td>Skribent</td><td>Lage maler og deler, og redigere og publisere sine egne.</td></tr>
-          <tr><td>Hovedskribent</td><td>Redigere og publisere alles maler, og ordne mappene.</td></tr>
-          <tr><td>Administrator</td><td>Styre innstillinger, språk, valglister og hendelseslogg, og eksportere og importere alle maler.</td></tr>
-        </tbody>
-      </table>
     </div>
   </section>
 
   <section class="block" id="sikkerhet">
     <div class="wrap">
-      <h2>Sikkerhet og personvern</h2>
+      <h2>Trygt for IT og personvern</h2>
       <p class="sub">Hver kunde får sin egen Templatisk i et eget miljø. Dataene dine blandes ikke med andres.</p>
       <div class="features">
         <div class="feature">
           <h3>Data i Norge</h3>
-          <p>Hver kunde har sin egen instans i Microsoft Azure, i regionen Norway East. Malene, innstillingene og hendelsesloggen ligger på en egen lagringsplass som hører til den instansen.</p>
+          <p>En egen instans i Microsoft Azure, i regionen Norway East.</p>
         </div>
         <div class="feature">
           <h3>Pålogging med Entra</h3>
-          <p>Brukerne logger inn med Microsoft Entra, og tilgangen følger rollene dere gir i Entra. Uten pålogging får ingen se malene.</p>
+          <p>Ingen nye passord og ingen egen brukerdatabase. Tilgangen følger rollene dere gir i Entra.</p>
         </div>
         <div class="feature">
-          <h3>Ingen egen brukerliste</h3>
-          <p>Templatisk har ingen egen brukerdatabase og lagrer ingen passord. Hvem som er hvem, bestemmer Entra hos dere, og når noen slutter, mister de tilgangen der. Malene og hendelsesloggen viser bare navn og e-post til dem som har laget eller endret noe.</p>
-        </div>
-        <div class="feature">
-          <h3>Sikkerhetskopi</h3>
-          <p>Malene kopieres automatisk hver natt, og hver kopi beholdes i 30 dager. En slettet lagringsplass kan hentes tilbake i 14 dager.</p>
-        </div>
-        <div class="feature">
-          <h3>Hendelseslogg</h3>
-          <p>Administratorer kan se hvem som har logget inn, og hvem som har laget, endret eller slettet maler. Loggen viser at noe skjedde, ikke innholdet i malene.</p>
-        </div>
-        <div class="feature">
-          <h3>Databehandleravtale</h3>
-          <p>Trenger dere en databehandleravtale, ta kontakt på <a href="mailto:kontakt@templatisk.no">kontakt@templatisk.no</a>.</p>
+          <h3>Sikkerhetskopi hver natt</h3>
+          <p>Hver kopi beholdes i 30 dager. Databehandleravtale kan avtales.</p>
         </div>
       </div>
-      <h3 id="personvern" class="privacy-title">Personvern på dette nettstedet</h3>
-      <p class="privacy">Nettstedet bruker ingen informasjonskapsler og ingen statistikk- eller sporingsverktøy. Hvis du sender e-post til kontakt@templatisk.no, bruker vi opplysningene du sender bare til å svare deg, og vi gir dem ikke videre.</p>
+      <p class="teaser-link"><a href="sikkerhet.html">Les mer om sikkerhet og personvern</a></p>
     </div>
   </section>
 
   <section class="block" id="kom-i-gang">
     <div class="wrap">
-      <h2>Kom i gang med en pilot</h2>
-      <p class="sub">Vi anbefaler å starte smått: en pilot med noen få maler og en liten gruppe brukere. Dere får en egen installasjon, og vi hjelper dere gjennom oppsettet.</p>
-      <ol class="start-list">
-        <li>
-          <h3>Ta kontakt</h3>
-          <p>Send en e-post til <a href="mailto:kontakt@templatisk.no">kontakt@templatisk.no</a>, så avtaler vi en pilot og hvem som skal være med.</p>
-        </li>
-        <li>
-          <h3>Vi setter opp installasjonen deres</h3>
-          <p>Dere får en egen Templatisk i Azure Norway East, med en egen adresse, for eksempel kunde.templatisk.no. Malene lagres i en egen fillagring med sikkerhetskopi hver natt.</p>
-        </li>
-        <li>
-          <h3>Dere oppretter en app i Entra</h3>
-          <p>En administrator hos dere registrerer Templatisk som en app i Microsoft Entra ID og tildeler rollene til dem som skal bruke den. Vi gir en trinn for trinn-veiledning. Hvem som får tilgang, styrer dere selv.</p>
-        </li>
-        <li>
-          <h3>Microsoft 365-administratoren laster opp tillegget</h3>
-          <p>Administratoren laster opp to manifestfiler, én for Word og én for Outlook, under Integrerte apper i administrasjonssenteret for Microsoft 365. Tillegget dukker så opp hos dem som har fått tilgang.</p>
-        </li>
-        <li>
-          <h3>Lag de første malene</h3>
-          <p>Skribentene lager maler i byggeren, publiserer dem, og saksbehandlerne setter dem inn fra Word og Outlook.</p>
-        </li>
-      </ol>
-      <p class="start-note">Pris avtaler vi sammen ut fra hva dere trenger. <a href="#kontakt">Ta kontakt</a> for en uforpliktende prat.</p>
-    </div>
-  </section>
-
-  <section class="block" id="faq">
-    <div class="wrap">
-      <h2>Spørsmål og svar</h2>
-      <p class="sub">Svar på vanlige spørsmål.</p>
-      <div class="faq">
-        <details>
-          <summary>Henger Templatisk sammen med arkivsystemet vårt?</summary>
-          <p>Nei. Templatisk setter tekst inn i Word og Outlook og er uavhengig av arkivsystem. Det som skjer med dokumentet etterpå, for eksempel å lagre det i arkivet, gjør dere slik dere gjør i dag.</p>
-        </details>
-        <details>
-          <summary>Fungerer det på Mac og i Word på nett?</summary>
-          <p>Templatisk er et vanlig Office-tillegg som er laget for Word på PC, Mac og nett. Så langt er det testet i Word på Windows, så vi anbefaler en kort prøve på de andre plattformene hos dere før dere tar det i bruk.</p>
-        </details>
-        <details>
-          <summary>Fungerer det i Outlook også?</summary>
-          <p>Ja. Et eget Outlook-tillegg setter malene inn i e-posten du skriver. Hver mal kan merkes for Word, Outlook eller begge. Outlook-tillegget er ennå ikke testet i en ekte Outlook-installasjon.</p>
-        </details>
-        <details>
-          <summary>Må vi bruke Microsoft Entra ID?</summary>
-          <p>For vanlig bruk, ja: pålogging og roller kommer fra Entra. Uten Entra kan alle med adressen lese publiserte maler, men ingen kan lage eller endre maler. Det er bare ment som en midlertidig start under oppsett.</p>
-        </details>
-        <details>
-          <summary>Hvem kan lage og endre maler?</summary>
-          <p>Det styrer dere selv med roller i Entra. Skribenter lager og publiserer sine egne maler, hovedskribenter redigerer alles maler, og administratorer styrer innstillinger. Saksbehandlere kan bare sette inn publiserte maler, og ser aldri utkast.</p>
-        </details>
-        <details>
-          <summary>Hvor lagres malene?</summary>
-          <p>Hver kunde får sin egen installasjon i Azure Norway East, og malene ligger i en egen fillagring der. Det tas sikkerhetskopi hver natt, og hver kopi beholdes i 30 dager.</p>
-        </details>
+      <h2>Start med en pilot</h2>
+      <p class="sub">I piloten får dere en fullverdig installasjon med alle funksjonene, over seks måneder. Pilotbeløpet trekkes fra årslisensen hvis dere fortsetter. Pris er en fast årspris etter antall brukere, hosting inkludert.</p>
+      <div class="hero-actions">
+        <a class="btn" href="pilot.html">Se pilot og pris</a>
+        <a class="btn ghost" href="mailto:kontakt@templatisk.no?subject=Avtal%20et%20m%C3%B8te%20om%20Templatisk">Avtal et møte</a>
       </div>
     </div>
   </section>
 
   <section class="block cta" id="kontakt">
     <div class="wrap">
-      <h2>Vil du prøve Templatisk?</h2>
-      <p class="sub">Ta kontakt, så viser vi hvordan det kan se ut hos dere.</p>
-      <a class="btn" href="mailto:kontakt@templatisk.no">kontakt@templatisk.no</a>
+      <h2>Vil dere prøve?</h2>
+      <p class="sub">Start med demoen, eller avtal et møte, så viser vi hvordan malene deres kan se ut i Word og Outlook.</p>
+      <div class="hero-actions" style="justify-content:center">
+        <a class="btn" href="demo/">Prøv demoen</a>
+        <a class="btn ghost" href="mailto:kontakt@templatisk.no?subject=Avtal%20et%20m%C3%B8te%20om%20Templatisk">Avtal et møte</a>
+      </div>
+      <p class="price-note">Eller send en e-post til <a href="mailto:kontakt@templatisk.no">kontakt@templatisk.no</a>. Se også <a href="sporsmal.html">spørsmål og svar</a>.</p>
     </div>
   </section>
 
@@ -539,29 +283,6 @@
       });
     })();
   </script>
-  <script>
-    (function () {
-      var toggle = document.querySelector('.menu-toggle');
-      var menu = document.getElementById('hovedmeny');
-
-      function setOpen(open) {
-        menu.classList.toggle('open', open);
-        toggle.setAttribute('aria-expanded', String(open));
-      }
-
-      toggle.addEventListener('click', function () {
-        setOpen(toggle.getAttribute('aria-expanded') !== 'true');
-      });
-      menu.addEventListener('click', function (event) {
-        if (event.target.closest('a')) setOpen(false);
-      });
-      document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
-          setOpen(false);
-          toggle.focus();
-        }
-      });
-    })();
-  </script>
+  <script src="menu.js"></script>
 </body>
 </html>
