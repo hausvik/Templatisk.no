@@ -66,8 +66,12 @@
         </div>
 
         <section class="mock" aria-label="Prøv selv: fyll ut feltene og sett inn teksten i dokumentet">
-          <div class="mock-bar" aria-hidden="true"><span></span><span></span><span></span></div>
-          <div class="mock-body">
+          <div class="mock-tabs" role="tablist" aria-label="Eksempler på standardtekster">
+            <button type="button" role="tab" id="tab-tilskudd" aria-controls="eks-tilskudd" aria-selected="true">Vedtak om tilskudd</button>
+            <button type="button" role="tab" id="tab-arbeidsavtale" aria-controls="eks-arbeidsavtale" aria-selected="false" tabindex="-1">Arbeidsavtale</button>
+            <button type="button" role="tab" id="tab-oppdrag" aria-controls="eks-oppdrag" aria-selected="false" tabindex="-1">Oppdragsbekreftelse</button>
+          </div>
+          <div class="mock-body example" id="eks-tilskudd" role="tabpanel" aria-labelledby="tab-tilskudd">
             <div class="doc" aria-live="polite">
               <div class="line" style="width:45%"></div>
               <p>Vi viser til søknaden fra <span class="tag t" data-field="navn">Navn</span> mottatt <span class="tag d" data-field="dato">Dato</span>.</p>
@@ -76,13 +80,52 @@
               <div class="line" style="width:85%"></div>
               <div class="line" style="width:60%"></div>
             </div>
-            <form class="pane" id="demo">
+            <form class="pane">
               <h4>Vedtak om tilskudd</h4>
-              <div class="field"><label for="demo-navn">Navn *</label><input id="demo-navn" name="navn" value="Kari Nordmann" required autocomplete="off"></div>
-              <div class="field"><label for="demo-dato">Dato *</label><input id="demo-dato" name="dato" type="date" value="2026-10-08" required></div>
-              <div class="field"><label for="demo-belop">Beløp</label><input id="demo-belop" name="belop" value="25000" inputmode="decimal" autocomplete="off"></div>
+              <div class="field"><label for="tilskudd-navn">Navn *</label><input id="tilskudd-navn" name="navn" value="Kari Nordmann" required autocomplete="off"></div>
+              <div class="field"><label for="tilskudd-dato">Dato *</label><input id="tilskudd-dato" name="dato" type="date" value="2026-10-08" required></div>
+              <div class="field"><label for="tilskudd-belop">Beløp</label><input id="tilskudd-belop" name="belop" value="25000" inputmode="decimal" autocomplete="off" data-numeric></div>
               <button class="btn" type="submit">Sett inn</button>
-              <button class="link" type="button" id="demo-reset" hidden>Start på nytt</button>
+              <button class="link" type="button" hidden>Start på nytt</button>
+            </form>
+          </div>
+          <div class="mock-body example" id="eks-arbeidsavtale" role="tabpanel" aria-labelledby="tab-arbeidsavtale" hidden>
+            <div class="doc" aria-live="polite">
+              <div class="line" style="width:45%"></div>
+              <p>Vi gleder oss til å ønske <span class="tag t" data-field="navn">Navn</span> velkommen som <span class="tag t" data-field="stilling">Stilling</span>.</p>
+              <p>Stillingen er <span class="tag t" data-field="form">Ansettelsesform</span>, med tiltredelse <span class="tag d" data-field="dato">Dato</span> og årslønn <span class="tag n" data-field="lonn">Årslønn</span> kroner.</p>
+              <div class="line"></div>
+              <div class="line" style="width:85%"></div>
+              <div class="line" style="width:60%"></div>
+            </div>
+            <form class="pane">
+              <h4>Arbeidsavtale</h4>
+              <div class="field"><label for="arbeidsavtale-navn">Navn *</label><input id="arbeidsavtale-navn" name="navn" value="Ola Nordmann" required autocomplete="off"></div>
+              <div class="field"><label for="arbeidsavtale-stilling">Stilling *</label><input id="arbeidsavtale-stilling" name="stilling" value="rådgiver" required autocomplete="off"></div>
+              <div class="field"><label for="arbeidsavtale-form">Ansettelsesform</label><select id="arbeidsavtale-form" name="form"><option>fast</option><option>midlertidig</option></select></div>
+              <div class="field"><label for="arbeidsavtale-dato">Tiltredelse *</label><input id="arbeidsavtale-dato" name="dato" type="date" value="2026-11-01" required></div>
+              <div class="field"><label for="arbeidsavtale-lonn">Årslønn</label><input id="arbeidsavtale-lonn" name="lonn" value="620000" inputmode="decimal" autocomplete="off" data-numeric></div>
+              <button class="btn" type="submit">Sett inn</button>
+              <button class="link" type="button" hidden>Start på nytt</button>
+            </form>
+          </div>
+          <div class="mock-body example" id="eks-oppdrag" role="tabpanel" aria-labelledby="tab-oppdrag" hidden>
+            <div class="doc" aria-live="polite">
+              <div class="line" style="width:45%"></div>
+              <p>Vi bekrefter oppdraget fra <span class="tag t" data-field="klient">Klient</span> i en sak om <span class="tag t" data-field="sak">Saksområde</span>.</p>
+              <p>Arbeidet starter <span class="tag d" data-field="dato">Dato</span>, til en timesats på <span class="tag n" data-field="sats">Timesats</span> kroner eksklusive mva.</p>
+              <div class="line"></div>
+              <div class="line" style="width:85%"></div>
+              <div class="line" style="width:60%"></div>
+            </div>
+            <form class="pane">
+              <h4>Oppdragsbekreftelse</h4>
+              <div class="field"><label for="oppdrag-klient">Klient *</label><input id="oppdrag-klient" name="klient" value="Eksempel AS" required autocomplete="off"></div>
+              <div class="field"><label for="oppdrag-sak">Saksområde *</label><input id="oppdrag-sak" name="sak" value="entreprisekontrakt" required autocomplete="off"></div>
+              <div class="field"><label for="oppdrag-dato">Oppstart *</label><input id="oppdrag-dato" name="dato" type="date" value="2026-10-15" required></div>
+              <div class="field"><label for="oppdrag-sats">Timesats</label><input id="oppdrag-sats" name="sats" value="2200" inputmode="decimal" autocomplete="off" data-numeric></div>
+              <button class="btn" type="submit">Sett inn</button>
+              <button class="link" type="button" hidden>Start på nytt</button>
             </form>
           </div>
         </section>
