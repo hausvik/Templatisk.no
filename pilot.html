@@ -115,6 +115,27 @@
           <li>En administrator som kan laste opp tillegget under Integrerte apper i administrasjonssenteret for Microsoft 365.</li>
           <li>Rollene kan tildeles hver enkelt bruker i Entra ID Free. Vil dere tildele roller til grupper, trenger dere Entra ID P1 eller P2.</li>
         </ul>
+
+        <h3>Entra: app, tillatelser og tilgang</h3>
+        <ul class="it-list">
+          <li>Appen registreres i Entra som enkeltleietaker (bare deres katalog). Det trengs ingen klienthemmelighet, og Templatisk kaller aldri Microsoft Graph på vegne av en bruker i bakgrunnen.</li>
+          <li>Innlogging i Word og Outlook bruker Office-pålogging (SSO) med tillatelsen <em>access_as_user</em>, som dere selv oppretter i appregistreringen. Grunntillatelsene fra Microsoft Graph er <em>openid</em> og <em>profile</em>.</li>
+          <li>Byggeren, der standardtekstene lages, trenger i tillegg delegerte Graph-tillatelser for å søke etter personer og grupper når en standardtekst deles: <em>User.ReadBasic.All</em>, <em>GroupMember.Read.All</em> og <em>Application.Read.All</em>. De to siste krever administratorsamtykke. Uten dem fungerer byggeren, men det går ikke an å søke i Entra.</li>
+          <li><em>User.Read</em> brukes bare til å fylle ut avdelingen fra brukerens egen profil. Det er valgfritt, og feltet står ellers tomt.</li>
+          <li>Administrator gir samtykke på vegne av organisasjonen der det kreves. Dere bestemmer selv om dere vil gi det.</li>
+          <li>Fire roller opprettes som apperoller i Entra: Saksbehandler, Skribent, Hovedskribent og Administrator. Templatisk har ingen egen brukerliste, så rollene tildeles i Entra.</li>
+          <li>Sett <em>Assignment required</em> til Ja på bedriftsappen. Da får bare brukere og grupper dere har tildelt, logget inn. En produksjonsinstans starter ikke uten Entra-oppsett, med mindre det er valgt bevisst.</li>
+          <li>Flerfaktorpålogging (MFA) og betinget tilgang (Conditional Access) håndteres av Entra hos dere. Templatisk viser aldri en egen innloggingsside, så reglene dere har satt gjelder også her.</li>
+          <li>Gjestekontoer anbefales ikke. Office-pålogging i Word fungerer ikke for dem. Bruk vanlige medlemskontoer.</li>
+        </ul>
+
+        <h3>Flere enheter og avdelinger</h3>
+        <ul class="it-list">
+          <li>Hver kunde har én egen instans med én Entra-appregistrering. Flere avdelinger, fakultet eller enheter hos samme kunde bruker den samme instansen.</li>
+          <li>Standardtekstene kan ordnes i mapper. En mappe kan begrenses til bestemte Entra-grupper, slik at bare medlemmene ser standardtekstene i Word og Outlook. Skribenter og høyere roller ser alt. Dette krever at appregistreringen sender med gruppene i tokenet.</li>
+          <li>Hver standardtekst har et avdelingsfelt. Det fylles ut fra skribentens avdeling i Entra, eller velges fra en liste som administratoren definerer.</li>
+          <li>Rollene kan tildeles grupper i Entra hvis dere har Entra ID P1 eller P2. Har en bruker over 200 grupper, sender ikke Entra gruppelisten, og begrensede mapper holdes da stengt for brukeren. Tildel bare gruppene som brukes til mapper til appen for å unngå dette.</li>
+        </ul>
       </aside>
     </div>
   </section>
