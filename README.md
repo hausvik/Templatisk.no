@@ -2,7 +2,7 @@
 
 Marketing website for [Templatisk](https://templatisk.no), a template tool for Word and Outlook.
 
-The site is a few static pages in Norwegian (Bokmål): `index.html`, `sikkerhet.html`, `pilot.html` and `sporsmal.html`, with shared `site.css` and `menu.js`, plus `favicon.svg`, `logo/` and `og-image.png`. There is no build step and no dependencies. To preview it, open `index.html` in a browser.
+The site is a few static pages in Norwegian (Bokmål): `index.html`, `sikkerhet.html`, `pilot.html`, `sporsmal.html` and `tilgjengelighet.html`, with shared `site.css` and `menu.js`, plus `favicon.svg`, `logo/` and `og-image.png`. There is no build step and no dependencies. To preview it, open `index.html` in a browser.
 
 ## Demo
 
