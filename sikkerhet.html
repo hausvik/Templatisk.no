@@ -78,9 +78,24 @@
           <h3>Underleverandører</h3>
           <p>Vi bruker Microsoft Azure i regionen Norway East til drift og lagring, inkludert driftslogger. Innlogging skjer i Microsoft Entra hos dere. Programvaren hentes fra GitHub Container Registry, men ingen kundedata går dit. Vi bruker ingen andre underleverandører.</p>
         </div>
+        <div class="feature feature-wide">
+          <h3>Personopplysninger vi lagrer</h3>
+          <p>Alt ligger i instansen deres. Om brukerne lagrer Templatisk dette:</p>
+          <ul>
+            <li><strong>Hendelsesloggen:</strong> tidspunkt, rolle, navn og Entra-id for den som gjorde noe, hva som skjedde (for eksempel innlogging, opprettet, endret, slettet eller eksportert), navnet på standardteksten eller innstillingen det gjaldt, og en kort merknad. Ikke innholdet i standardtekstene.</li>
+            <li><strong>Hver standardtekst:</strong> Entra-id, navn og påloggingsnavn til den som laget den, og navnet til den som lagret hver av de ti siste versjonene.</li>
+            <li><strong>Deling:</strong> Entra-id til personer og grupper som en standardtekst er delt med.</li>
+            <li><strong>Brukertelling:</strong> en hash av Entra-iden (ikke selve iden) og datoen brukeren sist var aktiv, for å telle brukere de siste 30 dagene. Antall per dag, uten navn, beholdes i 400 dager.</li>
+          </ul>
+          <p>Slettede standardtekster ligger i papirkurven i 30 dager, med versjonene sine, og slettes deretter for godt.</p>
+        </div>
+        <div class="feature">
+          <h3>Hvor lenge loggen beholdes</h3>
+          <p>Hendelsesloggen har ingen fast tidsgrense. Den lagres i filer på 2 MB, og de ti siste fullførte filene beholdes i tillegg til den som er i bruk. Det blir til sammen omtrent 22 MB, og de eldste hendelsene slettes automatisk når grensen nås. Hvor langt tilbake loggen rekker, avhenger av hvor aktivt Templatisk brukes. En administrator kan eksportere loggen som CSV-fil.</p>
+        </div>
         <div class="feature">
           <h3>Databehandleravtale</h3>
-          <p>Trenger dere en databehandleravtale, ta kontakt på <a href="mailto:kontakt@templatisk.no">kontakt@templatisk.no</a>.</p>
+          <p>Dere er behandlingsansvarlig for opplysningene om brukerne deres, og vi er databehandler. Trenger dere en databehandleravtale, ta kontakt på <a href="mailto:kontakt@templatisk.no">kontakt@templatisk.no</a>.</p>
         </div>
       </div>
       <h3 id="personvern" class="privacy-title">Personvern på dette nettstedet</h3>
