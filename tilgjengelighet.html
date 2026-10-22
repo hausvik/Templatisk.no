@@ -4,77 +4,52 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tilgjengelighetserklæring – Templatisk</title>
-  <meta name="description" content="Tilgjengelighetserklæring for templatisk.no og for Templatisk-produktet: hva som er kontrollert, kjente mangler og hvordan du kontakter oss." />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <meta name="description" content="Tilgjengelighetserklæring for templatisk.no og Templatisk-produktet: hva som er kontrollert, hva som ikke er testet ennå, kjente mangler og hvordan du kontakter oss." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.templatisk.no/tilgjengelighet" />
+  <meta property="og:title" content="Tilgjengelighetserklæring – Templatisk" />
+  <meta property="og:description" content="Tilgjengelighetserklæring for templatisk.no og Templatisk-produktet: hva som er kontrollert, hva som ikke er testet ennå, kjente mangler og hvordan du kontakter oss." />
+  <meta property="og:image" content="https://www.templatisk.no/og-image.png?v=2" />
+  <meta property="og:locale" content="nb_NO" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <link rel="canonical" href="https://www.templatisk.no/tilgjengelighet" />
-  <style>
-    :root {
-      --bg: #f8f7f4;
-      --border: #ddd9d0;
-      --text: #16232e;
-      --muted: #526070;
-      --primary: #16232e;
-      --on-primary: #ffffff;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg: #101a22;
-        --border: #2e3d4a;
-        --text: #e8edf1;
-        --muted: #a9b6c2;
-        --primary: #f3b63f;
-        --on-primary: #16232e;
-      }
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-      line-height: 1.6;
-    }
-    a { color: var(--primary); }
-    a:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
-    .wrap { max-width: 46rem; margin: 0 auto; padding: 0 1.25rem; }
-    header.top { padding: 1.25rem 0; }
-    .brand {
-      display: inline-flex; align-items: center; gap: 0.6rem;
-      font-weight: 700; font-size: 1.2rem; color: var(--text); text-decoration: none;
-    }
-    .brand img { display: block; width: 32px; height: 32px; }
-    h1 { font-size: clamp(1.75rem, 4vw, 2.4rem); line-height: 1.2; margin: 1.5rem 0 0.5rem; letter-spacing: -0.02em; }
-    h2 { font-size: 1.35rem; margin: 2.25rem 0 0.5rem; }
-    p.meta { color: var(--muted); margin: 0 0 1.5rem; }
-    ul { padding-left: 1.25rem; }
-    li { margin-bottom: 0.4rem; }
-    footer { margin-top: 3rem; padding: 2rem 0 3rem; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
-    .skip-link {
-      position: absolute; left: 0.75rem; top: -4rem; z-index: 100;
-      padding: 0.6rem 1rem; border-radius: 8px;
-      background: var(--primary); color: var(--on-primary); font-weight: 600; text-decoration: none;
-    }
-    .skip-link:focus { top: 0.75rem; }
-  </style>
+  <link rel="stylesheet" href="/site.css" />
 </head>
 <body>
   <a class="skip-link" href="#innhold">Hopp til innhold</a>
   <div class="wrap">
     <header class="top">
-      <a class="brand" href="/"><img src="logo/mark.svg" alt="" /><span>Templatisk</span></a>
+      <a class="brand" href="/">
+        <picture>
+          <source srcset="/logo/mark-dark.svg" media="(prefers-color-scheme: dark)" />
+          <img src="/logo/mark.svg" alt="" />
+        </picture>Templatisk
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="hovedmeny">Meny</button>
+      <nav class="links" id="hovedmeny" aria-label="Hovedmeny">
+        <a href="/#slik">Slik virker det</a>
+        <a href="/demo/">Prøv demo</a>
+        <a href="/sikkerhet">Sikkerhet</a>
+        <a href="/pilot">Pilot og pris</a>
+        <a href="/sporsmal">Spørsmål</a>
+        <a href="/#kontakt">Kontakt</a>
+      </nav>
     </header>
+  </div>
 
-    <main id="innhold" tabindex="-1">
+  <main id="innhold" tabindex="-1">
+    <div class="wrap page-head">
       <h1>Tilgjengelighetserklæring</h1>
-      <p class="meta">Sist oppdatert 13. oktober 2026</p>
-
-      <p>Her beskriver vi hva vi har kontrollert, hva vi vet ikke fungerer godt nok ennå, og hvordan du kan si fra.</p>
+      <p>Sist oppdatert 22. oktober 2026</p>
+    </div>
+    <div class="wrap prose">
+      <p>Her beskriver vi hva vi har kontrollert, hva vi ikke har testet ennå, hva vi vet ikke fungerer godt nok, og hvordan du kan si fra.</p>
       <p>Templatisk er ikke et offentlig organ. Vi har derfor ikke rapportert til Tilsynet for universell utforming av IKT (uu.no), og denne erklæringen er ingen påstand om at vi oppfyller lovkrav. Den viser hva vi faktisk har sjekket.</p>
 
       <h2>Hva erklæringen gjelder</h2>
       <ul>
-        <li>Nettstedet templatisk.no, inkludert forsiden.</li>
+        <li>Nettstedet templatisk.no, inkludert forsiden, demoen og de andre sidene.</li>
         <li>Produktet Templatisk: malbyggeren i nettleseren og tillegget for Word og Outlook. Demoen på nettstedet er en kopi av produktet.</li>
       </ul>
 
@@ -83,31 +58,46 @@
 
       <h2>Hva som er kontrollert</h2>
       <ul>
-        <li>Produktet: Vi gikk gjennom tillegget og malbyggeren mot WCAG 2.1 AA 1. og 2. oktober 2026. Dialoger fanger og gjenoppretter fokus og lukkes med Escape, malmenyen kan styres med tastatur, og kontrasten i feltfargene er økt. Siste automatiske kontroll fant bare én kjent merknad, som gjelder et banner som bare vises under utvikling.</li>
-        <li>Produktet, andre kontroll: 13. oktober 2026 kjørte vi axe-core mot demoen av byggeren og tillegget i lyst og mørkt tema, med dialoger åpne, og sjekket med tastatur at alle kontroller får synlig fokus, at dialoger fanger fokus, at sidene bryter om uten sidelengs rulling ved 320 px bredde, og at tekst tåler økt linje- og bokstavavstand. Funnene (knappenavn som ikke inneholdt synlig tekst, for lav kontrast på merket «Del», en tom tabelloverskrift) er rettet i produktet, og demoen er bygget på nytt med rettelsene.</li>
-        <li>Nettstedet: Vi kjørte det automatiske verktøyet axe-core (WCAG 2.0 og 2.1, nivå A og AA) mot forsiden, feilsiden, denne siden og demoen, både i lyst og mørkt tema, 11. oktober 2026.</li>
-        <li>Automatiske verktøy finner bare en del av feilene. Vi har ikke testet systematisk med skjermleser, og testen av Word-tillegget er gjort i nettleseren, ikke i selve Word.</li>
+        <li><strong>1. og 2. oktober 2026, produktet:</strong> Vi gikk gjennom tillegget og malbyggeren mot WCAG 2.1 AA. Dialoger fanger og gjenoppretter fokus og lukkes med Escape, malmenyen kan styres med tastatur, og kontrasten i feltfargene er økt.</li>
+        <li><strong>11. oktober 2026, nettstedet:</strong> Vi kjørte det automatiske verktøyet axe-core (WCAG 2.0 og 2.1, nivå A og AA) mot forsiden, feilsiden, denne siden og demoen, i lyst og mørkt tema.</li>
+        <li><strong>13. oktober 2026, produktet:</strong> axe-core mot demoen av byggeren og tillegget i lyst og mørkt tema, med dialoger åpne. Vi sjekket også med tastatur at alle kontroller får synlig fokus, at dialoger fanger fokus, at sidene bryter om uten sidelengs rulling ved 320 px bredde, og at tekst tåler økt linje- og bokstavavstand. Funnene (knappenavn som ikke inneholdt synlig tekst, for lav kontrast på merket «Del», en tom tabelloverskrift) er rettet.</li>
+        <li><strong>22. oktober 2026, forberedelse til skjermleserbruk:</strong> Vi gikk gjennom malbyggeren og tillegget i Chromium på samme måte som en skjermleserbruker bruker dem, men uten en faktisk skjermleser. Vi leste ut nettleserens tilgjengelighetstre (roller, navn, tilstander og landemerker), gikk gjennom tabulatorrekkefølgen, brukte bare tastatur til å åpne en mal, fylle ut skjemaet, utløse feilmeldinger og sette inn, åpnet og lukket dialoger, og kjørte axe-core 4.14 i lyst og mørkt tema. Tillegget ble kjørt i nettleseren med en stand-in for Office, ikke i Word.</li>
       </ul>
+
+      <h2>Funn 22. oktober 2026</h2>
+      <p>Det automatiske verktøyet fant ett brudd: bredde-skilleren på sidepanelene i byggeren sa ikke hvilken bredde den hadde. Den manuelle gjennomgangen fant to ting til:</p>
+      <ul>
+        <li>I byggeren havnet tastaturfokus på toppen av siden når man lukket dialogene for nytt felt og ny lenke med Escape, i stedet for å gå tilbake til knappen man kom fra.</li>
+        <li>I tillegget forsvant Sett inn-knappen når advarselen om tomme felt kom opp, og fokus falt til toppen av siden. Brukeren måtte tabbe seg tilbake.</li>
+      </ul>
+      <p>Alle tre er rettet i produktet. Rettelsene vises i demoen når vi har bygget den på nytt. Etter rettelsene fant axe-core ingen brudd i byggeren, i tillegget eller i dialogene vi åpnet.</p>
+      <p>Det gikk bra: Alle skjemafelt har navn, og kravene står i navnet («må fylles ut»). Ved manglende utfylling får feltet <code>aria-invalid</code>, feilteksten er koblet til feltet, og fokus flyttes dit. Advarselen om tomme felt leses opp automatisk. Sidene har landemerker (banner, navigasjon, hovedinnhold, bunntekst) og én førstenivåoverskrift, og språket er satt.</p>
+
+      <h2>Ikke testet ennå</h2>
+      <p>Vi har <strong>ikke</strong> testet med en faktisk skjermleser. Gjennomgangen over viser hva en skjermleser får å jobbe med, men den viser ikke hvordan det høres ut i praksis. Det betyr at vi ikke kan si at Templatisk fungerer godt med NVDA, JAWS, VoiceOver eller Skjermleser i Windows.</p>
+      <p>Planlagt er en test med NVDA i Word, der vi går gjennom å åpne tillegget, velge en mal, fylle ut og sette inn. Vi oppdaterer denne siden med resultatet, også om det er dårlig.</p>
 
       <h2>Kjente mangler</h2>
       <ul>
         <li>Demoen er en kopi av produktet fra et bestemt tidspunkt. Rettelser i produktet kommer først i demoen når vi bygger den på nytt.</li>
         <li>Vi har ikke kontrollert hvordan Word og Outlook selv presenterer det som settes inn, for eksempel tilgjengeligheten i dokumentet etter innsetting. Den som lager standardteksten har ansvar for at innholdet er tilgjengelig.</li>
-        <li>Det kan finnes feil vi ikke har funnet.</li>
+        <li>Automatiske verktøy finner bare en del av feilene. Det kan finnes feil vi ikke har funnet.</li>
       </ul>
-
-      <p>Forsiden hadde tidligere for lav kontrast (4,18:1) på de oransje feltmerkene i illustrasjonen. Det er rettet.</p>
 
       <h2>Si fra om feil</h2>
       <p>Opplever du at noe ikke fungerer for deg, send oss en e-post på <a href="mailto:kontakt@templatisk.no">kontakt@templatisk.no</a>. Beskriv gjerne siden, hjelpemiddelet du bruker og hva som gikk galt.</p>
 
       <h2>Oppdatering</h2>
       <p>Vi oppdaterer erklæringen når vi retter feil eller gjør nye kontroller.</p>
-    </main>
+    </div>
+  </main>
 
-    <footer>
-      <a href="/">Til forsiden</a>
-    </footer>
-  </div>
+  <footer>
+    <div class="wrap">
+      <span>© 2026 Templatisk · <a href="/tilgjengelighet" aria-current="page">Tilgjengelighetserklæring</a></span>
+      <span>Templatisk er et tillegg for Microsoft Word og Outlook.</span>
+    </div>
+  </footer>
+  <script src="/menu.js"></script>
 </body>
 </html>

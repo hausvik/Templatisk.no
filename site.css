@@ -237,3 +237,12 @@ nav.links a[aria-current="page"] { color: var(--text); font-weight: 600; }
 }
 .skip-link:focus { top: 0.75rem; }
 main:focus { outline: none; }
+
+/* A long title, such as «Tilgjengelighetserklæring», must wrap on a narrow phone rather than scroll. */
+.page-head h1 { overflow-wrap: anywhere; hyphens: auto; }
+
+/* Running text on pages such as the accessibility statement. */
+.prose { max-width: 46rem; }
+.prose h2 { font-size: 1.35rem; margin: 2.25rem 0 0.5rem; }
+.prose ul { padding-left: 1.25rem; }
+.prose li { margin-bottom: 0.4rem; }
