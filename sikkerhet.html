@@ -31,7 +31,7 @@
         <a href="/#slik">Slik virker det</a>
         <a href="/demo/">Prøv demo</a>
         <a href="/sikkerhet" aria-current="page">Sikkerhet</a>
-        <a href="/pilot">Pilot og pris</a>
+        <a href="/pilot">Pilot</a>
         <a href="/sporsmal">Spørsmål</a>
         <a href="/#kontakt">Kontakt</a>
       </nav>
@@ -41,65 +41,42 @@
   <main id="innhold" tabindex="-1">
     <div class="wrap page-head">
       <h1>Sikkerhet og personvern</h1>
-      <p>Hver kunde får sin egen Templatisk i et eget miljø. Dataene deres blandes ikke med andres.</p>
+      <p>Hver kunde får en egen Templatisk i et eget miljø.</p>
     </div>
   <section class="block" id="sikkerhet">
     <div class="wrap">
       <div class="features">
         <div class="feature">
-          <h3 id="data-i-norge">Data i Norge</h3>
-          <p>Hver kunde har sin egen instans i Microsoft Azure, i regionen Norway East. Standardtekstene, innstillingene og hendelsesloggen ligger på en egen lagringsplass som hører til den instansen.</p>
+          <h3 id="data-i-norge">Data hos dere</h3>
+          <p>Standardtekstene og hendelsesloggen lagres i deres egen installasjon i Microsoft Azure, i regionen Norway East. Unntaket er KI-funksjonen hvis dere slår den på, se under.</p>
         </div>
         <div class="feature">
           <h3>Pålogging med Entra</h3>
-          <p>Brukerne logger inn med Microsoft Entra, og tilgangen følger rollene dere gir i Entra. Uten pålogging får ingen lage eller endre standardtekster, og en produksjonsinstans starter ikke uten Entra-oppsett, med mindre det er valgt bevisst.</p>
-        </div>
-        <div class="feature">
-          <h3>Ingen egen brukerliste</h3>
-          <p>Templatisk har ingen egen brukerdatabase og lagrer ingen passord. Hvem som er hvem, bestemmer Entra hos dere, og når noen slutter, mister de tilgangen der. Standardtekstene og hendelsesloggen viser bare navn og e-post til dem som har laget eller endret noe.</p>
+          <p>Brukerne logger inn med Microsoft Entra, og tilgangen følger rollene dere gir der. Templatisk har ingen egen brukerliste og lagrer ingen passord.</p>
         </div>
         <div class="feature">
           <h3>Sikkerhetskopi</h3>
-          <p>Standardtekstene kopieres automatisk hver natt, og hver kopi beholdes i 30 dager. En slettet lagringsplass kan hentes tilbake i 14 dager.</p>
+          <p>Standardtekstene kopieres automatisk hver natt, og hver kopi beholdes i 30 dager.</p>
         </div>
         <div class="feature">
           <h3 id="hendelseslogg">Hendelseslogg</h3>
-          <p>Administratorer kan se hvem som har logget inn, og hvem som har laget, endret eller slettet standardtekster. Loggen viser at noe skjedde, ikke innholdet i standardtekstene.</p>
+          <p>Administratorer kan se hvem som har logget inn, og hvem som har laget, endret eller slettet standardtekster. Loggen viser ikke innholdet i standardtekstene.</p>
         </div>
         <div class="feature">
           <h3 id="ki">KI er valgfritt</h3>
-          <p>Templatisk har en valgfri funksjon, «Foreslå felt», som foreslår hvilke deler av en tekst som bør bli utfyllingsfelt. Den er avslått som standard, og bare en administrator hos dere kan slå den på. Templatisk leverer ikke KI-tjeneste selv: dere kobler til en egen KI-tjeneste dere har avtale med, for eksempel Azure OpenAI. Teksten som skribenten limer inn, sendes da direkte til den tjenesten og ikke til oss, og avtalen med leverandøren er mellom dere og dem. Teksten lagres ikke i Templatisk og står ikke i hendelsesloggen. Saksbehandlere bruker ikke funksjonen.</p>
+          <p>KI-funksjonen er avslått som standard, og bare en administrator hos dere kan slå den på. Templatisk leverer ikke KI-tjeneste selv: teksten sendes til den KI-tjenesten dere har koblet til, og ikke til oss.</p>
         </div>
         <div class="feature">
           <h3 id="hvis-dere-slutter">Hvis dere slutter</h3>
-          <p>Standardtekstene ligger i deres egen instans, og dere kan når som helst eksportere dem som en JSON-fil. Det gjør en administrator selv i innstillingene. Filen kan importeres i en annen Templatisk-instans. Hvis vi skulle slutte å levere tjenesten, har dere dermed fortsatt tekstene.</p>
+          <p>En administrator kan når som helst eksportere alle standardtekstene som en fil.</p>
         </div>
         <div class="feature">
-          <h3>Underleverandører</h3>
-          <p>Vi bruker Microsoft Azure i regionen Norway East til drift og lagring, inkludert driftslogger. Innlogging skjer i Microsoft Entra hos dere. Programvaren hentes fra GitHub Container Registry, men ingen kundedata går dit. Vi bruker ingen andre underleverandører.</p>
-        </div>
-        <div class="feature feature-wide">
-          <h3 id="personopplysninger">Personopplysninger vi lagrer</h3>
-          <p>Alt ligger i instansen deres. Om brukerne lagrer Templatisk dette:</p>
-          <ul>
-            <li><strong>Hendelsesloggen:</strong> tidspunkt, rolle, navn og Entra-id for den som gjorde noe, hva som skjedde (for eksempel innlogging, opprettet, endret, slettet eller eksportert), navnet på standardteksten eller innstillingen det gjaldt, og en kort merknad. Ikke innholdet i standardtekstene.</li>
-            <li><strong>Hver standardtekst:</strong> Entra-id, navn og påloggingsnavn til den som laget den, og navnet til den som lagret hver av de ti siste versjonene.</li>
-            <li><strong>Deling:</strong> Entra-id til personer og grupper som en standardtekst er delt med.</li>
-            <li><strong>Brukertelling:</strong> en hash av Entra-iden (ikke selve iden) og datoen brukeren sist var aktiv, for å telle brukere de siste 30 dagene. Antall per dag, uten navn, beholdes i 400 dager.</li>
-          </ul>
-          <p>Slettede standardtekster ligger i papirkurven i 30 dager, med versjonene sine, og slettes deretter for godt.</p>
-        </div>
-        <div class="feature">
-          <h3>Hvor lenge loggen beholdes</h3>
-          <p>Hendelsesloggen har ingen fast tidsgrense. Den lagres i filer på 2 MB, og de ti siste fullførte filene beholdes i tillegg til den som er i bruk. Det blir til sammen omtrent 22 MB, og de eldste hendelsene slettes automatisk når grensen nås. Hvor langt tilbake loggen rekker, avhenger av hvor aktivt Templatisk brukes. En administrator kan eksportere loggen som CSV-fil.</p>
-        </div>
-        <div class="feature">
-          <h3>Databehandleravtale</h3>
-          <p>Dere er behandlingsansvarlig for opplysningene om brukerne deres, og vi er databehandler. Trenger dere en databehandleravtale, ta kontakt på <a href="mailto:kontakt@templatisk.no">kontakt@templatisk.no</a>.</p>
+          <h3 id="personopplysninger">Personopplysninger og databehandleravtale</h3>
+          <p>Templatisk lagrer navn og Entra-id til dem som lager eller endrer noe, men ingen passord. Dere er behandlingsansvarlig og vi er databehandler. Trenger dere en databehandleravtale, ta kontakt på <a href="mailto:kontakt@templatisk.no">kontakt@templatisk.no</a>.</p>
         </div>
       </div>
       <h3 id="personvern" class="privacy-title">Personvern på dette nettstedet</h3>
-      <p class="privacy">Nettstedet bruker ingen informasjonskapsler og ingen statistikk- eller sporingsverktøy. Hvis du sender e-post til kontakt@templatisk.no, bruker vi opplysningene du sender bare til å svare deg, og vi gir dem ikke videre.</p>
+      <p class="privacy">Nettstedet bruker ingen informasjonskapsler og ingen statistikk- eller sporingsverktøy.</p>
     </div>
   </section>
   </main>
