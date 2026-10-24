@@ -15,7 +15,7 @@
     .mobile-shots figure { margin: 1.5rem 0 0; }
     .mobile-shots img { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 12px; }
     .mobile-shots figcaption { color: var(--muted); font-size: 0.9rem; margin-top: 0.75rem; }
-    @media (max-width: 860px) { .mobile-shots { display: block; margin-top: 1.5rem; } }
+    @media (max-width: 860px) { .mobile-shots { display: block; margin-top: 1.5rem; } .reset-row { display: none; } }
   </style>
 </head>
 <body>
@@ -34,7 +34,7 @@
       <section class="intro">
         <h1>Prøv Templatisk</h1>
         <p class="lead">Dette er den ekte byggeren og det ekte Word-tillegget, kjørt i nettleseren din. Du er logget inn som skribent og kan endre malen eller lage egne. Ingenting lagres på noen server, og endringene dine blir bare i denne nettleseren.</p>
-        <p><button type="button" class="btn ghost" id="reset-demo">Tilbakestill demoen</button></p>
+        <p class="reset-row"><button type="button" class="btn ghost" id="reset-demo">Tilbakestill demoen</button></p>
       </section>
 
       <p class="small-screen-note">Demoen trenger en større skjerm. Åpne denne siden på en PC eller et nettbrett i liggende format.</p>
