@@ -47,12 +47,12 @@
     <div class="wrap">
       <div class="features">
         <div class="feature">
-          <h3>Data i Norge</h3>
+          <h3 id="data-i-norge">Data i Norge</h3>
           <p>Hver kunde har sin egen instans i Microsoft Azure, i regionen Norway East. Standardtekstene, innstillingene og hendelsesloggen ligger på en egen lagringsplass som hører til den instansen.</p>
         </div>
         <div class="feature">
           <h3>Pålogging med Entra</h3>
-          <p>Brukerne logger inn med Microsoft Entra, og tilgangen følger rollene dere gir i Entra. Uten pålogging får ingen se standardtekstene.</p>
+          <p>Brukerne logger inn med Microsoft Entra, og tilgangen følger rollene dere gir i Entra. Uten pålogging får ingen lage eller endre standardtekster, og en produksjonsinstans starter ikke uten Entra-oppsett, med mindre det er valgt bevisst.</p>
         </div>
         <div class="feature">
           <h3>Ingen egen brukerliste</h3>
@@ -63,15 +63,15 @@
           <p>Standardtekstene kopieres automatisk hver natt, og hver kopi beholdes i 30 dager. En slettet lagringsplass kan hentes tilbake i 14 dager.</p>
         </div>
         <div class="feature">
-          <h3>Hendelseslogg</h3>
+          <h3 id="hendelseslogg">Hendelseslogg</h3>
           <p>Administratorer kan se hvem som har logget inn, og hvem som har laget, endret eller slettet standardtekster. Loggen viser at noe skjedde, ikke innholdet i standardtekstene.</p>
         </div>
         <div class="feature">
-          <h3>KI er valgfritt</h3>
+          <h3 id="ki">KI er valgfritt</h3>
           <p>Templatisk har en valgfri funksjon, «Foreslå felt», som foreslår hvilke deler av en tekst som bør bli utfyllingsfelt. Den er avslått som standard, og bare en administrator hos dere kan slå den på. Templatisk leverer ikke KI-tjeneste selv: dere kobler til en egen KI-tjeneste dere har avtale med, for eksempel Azure OpenAI. Teksten som skribenten limer inn, sendes da direkte til den tjenesten og ikke til oss, og avtalen med leverandøren er mellom dere og dem. Teksten lagres ikke i Templatisk og står ikke i hendelsesloggen. Saksbehandlere bruker ikke funksjonen.</p>
         </div>
         <div class="feature">
-          <h3>Hvis dere slutter</h3>
+          <h3 id="hvis-dere-slutter">Hvis dere slutter</h3>
           <p>Standardtekstene ligger i deres egen instans, og dere kan når som helst eksportere dem som en JSON-fil. Det gjør en administrator selv i innstillingene. Filen kan importeres i en annen Templatisk-instans. Hvis vi skulle slutte å levere tjenesten, har dere dermed fortsatt tekstene.</p>
         </div>
         <div class="feature">
@@ -79,7 +79,7 @@
           <p>Vi bruker Microsoft Azure i regionen Norway East til drift og lagring, inkludert driftslogger. Innlogging skjer i Microsoft Entra hos dere. Programvaren hentes fra GitHub Container Registry, men ingen kundedata går dit. Vi bruker ingen andre underleverandører.</p>
         </div>
         <div class="feature feature-wide">
-          <h3>Personopplysninger vi lagrer</h3>
+          <h3 id="personopplysninger">Personopplysninger vi lagrer</h3>
           <p>Alt ligger i instansen deres. Om brukerne lagrer Templatisk dette:</p>
           <ul>
             <li><strong>Hendelsesloggen:</strong> tidspunkt, rolle, navn og Entra-id for den som gjorde noe, hva som skjedde (for eksempel innlogging, opprettet, endret, slettet eller eksportert), navnet på standardteksten eller innstillingen det gjaldt, og en kort merknad. Ikke innholdet i standardtekstene.</li>

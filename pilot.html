@@ -101,7 +101,7 @@
 
         <h3>Oppsett</h3>
         <ol class="it-steps">
-          <li>Vi setter opp en egen Templatisk i Azure Norway East, med en egen adresse, for eksempel kunde.templatisk.no. Malene lagres i en egen fillagring med sikkerhetskopi hver natt.</li>
+          <li>Vi setter opp en egen Templatisk i Azure Norway East, med en egen adresse, for eksempel kunde.templatisk.no. Se <a href="/sikkerhet#data-i-norge">sikkerhet</a> for hvor dataene ligger og hvordan de sikkerhetskopieres.</li>
           <li>En administrator hos dere registrerer Templatisk som en app i Microsoft Entra ID og tildeler rollene til dem som skal bruke den. Hvem som får tilgang, styrer dere selv.</li>
           <li>Administratoren laster opp to manifestfiler, én for Word og én for Outlook, under Integrerte apper i administrasjonssenteret for Microsoft 365. Tillegget dukker så opp hos dem som har fått tilgang.</li>
         </ol>
@@ -129,12 +129,12 @@
           <li>Gjestekontoer anbefales ikke. Office-pålogging i Word fungerer ikke for dem. Bruk vanlige medlemskontoer.</li>
         </ul>
 
-        <h3>Flere enheter og avdelinger</h3>
+        <h3 id="flere-enheter">Flere enheter og avdelinger</h3>
         <ul class="it-list">
           <li>Hver kunde har én egen instans med én Entra-appregistrering. Flere avdelinger, fakultet eller enheter hos samme kunde bruker den samme instansen.</li>
           <li>Standardtekstene kan ordnes i mapper. En mappe kan begrenses til bestemte Entra-grupper, slik at bare medlemmene ser standardtekstene i Word og Outlook. Skribenter og høyere roller ser alt. Dette krever at appregistreringen sender med gruppene i tokenet.</li>
           <li>Hver standardtekst har et avdelingsfelt. Det fylles ut fra skribentens avdeling i Entra, eller velges fra en liste som administratoren definerer.</li>
-          <li>Rollene kan tildeles grupper i Entra hvis dere har Entra ID P1 eller P2. Har en bruker over 200 grupper, sender ikke Entra gruppelisten, og begrensede mapper holdes da stengt for brukeren. Tildel bare gruppene som brukes til mapper til appen for å unngå dette.</li>
+          <li>Har en bruker over 200 grupper, sender ikke Entra gruppelisten, og begrensede mapper holdes da stengt for brukeren. Tildel bare gruppene som brukes til mapper til appen for å unngå dette.</li>
         </ul>
       </aside>
     </div>

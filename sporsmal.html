@@ -80,11 +80,11 @@
         </div>
         <div class="faq-item">
           <h2>Hva om vi har flere avdelinger eller enheter?</h2>
-          <p>De bruker samme Templatisk. Standardtekstene ordnes i mapper, og en mappe kan begrenses til bestemte Entra-grupper. Avdeling på en standardtekst hentes fra Entra eller velges fra en liste dere definerer. Rollene tildeles i Entra, til enkeltpersoner eller til grupper med Entra ID P1 eller P2.</p>
+          <p>De bruker samme Templatisk. Standardtekstene ordnes i mapper, og en mappe kan begrenses til bestemte Entra-grupper. Se <a href="/pilot#flere-enheter">For IT</a> for hvordan det settes opp.</p>
         </div>
         <div class="faq-item">
           <h2>Hvem kan lage og endre standardtekster?</h2>
-          <p>Det styrer dere selv med roller i Entra, til enkeltpersoner, eller til grupper med Entra ID P1 eller P2. Saksbehandlere kan bare sette inn publiserte standardtekster, og ser aldri utkast. Skribenter lager og publiserer sine egne standardtekster. Hovedskribenter redigerer og publiserer alles standardtekster og ordner mappene. Administratorer styrer innstillinger, språk, valglister og hendelseslogg, og kan eksportere og importere alle standardtekster. Templatisk har ingen egen brukerliste.</p>
+          <p>Det styrer dere selv med roller i Entra (se <a href="/pilot#for-it">For IT</a> for hvordan de tildeles). Saksbehandlere kan bare sette inn publiserte standardtekster, og ser aldri utkast. Skribenter lager og publiserer sine egne standardtekster. Hovedskribenter redigerer og publiserer alles standardtekster og ordner mappene. Administratorer styrer innstillinger, språk, valglister og hendelseslogg, og kan eksportere og importere alle standardtekster. Templatisk har ingen egen brukerliste.</p>
         </div>
         <div class="faq-item">
           <h2>Hva koster det?</h2>
@@ -92,11 +92,11 @@
         </div>
         <div class="faq-item">
           <h2>Bruker Templatisk KI?</h2>
-          <p>Bare hvis dere selv slår det på. Skribenter kan få forslag til hvilke deler av en tekst som bør bli utfyllingsfelt, men funksjonen er avslått som standard, og bare en administrator kan slå den på. Templatisk leverer ikke KI-tjeneste: dere kobler til en egen, for eksempel Azure OpenAI, og teksten sendes direkte dit. Skribenten får en påminnelse om det hver gang, og vi anbefaler eksempeltekst uten ekte personopplysninger. Se <a href="/sikkerhet">sikkerhet</a>.</p>
+          <p>Bare hvis dere selv slår det på. Funksjonen er avslått som standard, og Templatisk leverer ikke KI-tjeneste selv. Se <a href="/sikkerhet#ki">sikkerhet</a> for hvordan den fungerer og hvor teksten sendes.</p>
         </div>
         <div class="faq-item">
           <h2>Hva skjer med standardtekstene hvis vi slutter?</h2>
-          <p>Administratoren kan eksportere alle standardtekstene som en fil, og enkelte standardtekster kan eksporteres og importeres av skribentene.</p>
+          <p>Administratoren kan eksportere alle standardtekstene som en fil, og skribentene kan eksportere og importere enkeltstandardtekster. Se <a href="/sikkerhet#hvis-dere-slutter">sikkerhet</a>.</p>
         </div>
         <div class="faq-item">
           <h2>Hvor lang tid tar det å komme i gang?</h2>
@@ -104,15 +104,15 @@
         </div>
         <div class="faq-item">
           <h2>Kan vi se hvem som bruker det?</h2>
-          <p>Administratorer ser en hendelseslogg over innlogginger og endringer. Loggen viser at noe skjedde, ikke innholdet i standardtekstene.</p>
+          <p>Ja, administratorer ser en hendelseslogg over innlogginger og endringer. Se <a href="/sikkerhet#hendelseslogg">sikkerhet</a>.</p>
         </div>
         <div class="faq-item">
           <h2>Hvilke personopplysninger lagrer Templatisk?</h2>
-          <p>Navn og Entra-id i hendelsesloggen og på standardtekstene, og navnet til den som lagret hver versjon. Ikke passord, og ikke innholdet i standardtekstene i loggen. Loggen har ingen fast tidsgrense, men er begrenset til omtrent 22 MB, slik at de eldste hendelsene slettes etter hvert. Se <a href="/sikkerhet">sikkerhet og personvern</a> for hele listen.</p>
+          <p>Navn og Entra-id til dem som lager eller endrer noe, men ingen passord. Se <a href="/sikkerhet#personopplysninger">sikkerhet og personvern</a> for hele listen og hvor lenge det lagres.</p>
         </div>
         <div class="faq-item">
           <h2>Hvor lagres standardtekstene?</h2>
-          <p>Hver kunde får sin egen installasjon i Azure Norway East, og standardtekstene ligger i en egen fillagring der. Det tas sikkerhetskopi hver natt, og hver kopi beholdes i 30 dager.</p>
+          <p>Hos dere, i en egen installasjon i Azure Norway East. Se <a href="/sikkerhet#data-i-norge">sikkerhet</a> for lagring og sikkerhetskopi.</p>
         </div>
       </div>
     </div>
