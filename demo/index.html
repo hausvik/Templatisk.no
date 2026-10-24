@@ -10,6 +10,13 @@
   <link rel="modulepreload" crossorigin href="./assets/store-BIdlFAGC.js">
   <link rel="modulepreload" crossorigin href="./assets/insert-message-D-D-c4nR.js">
   <link rel="stylesheet" crossorigin href="./assets/index-BY5mXdwg.css">
+  <style>
+    .mobile-shots { display: none; }
+    .mobile-shots figure { margin: 1.5rem 0 0; }
+    .mobile-shots img { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 12px; }
+    .mobile-shots figcaption { color: var(--muted); font-size: 0.9rem; margin-top: 0.75rem; }
+    @media (max-width: 860px) { .mobile-shots { display: block; margin-top: 1.5rem; } }
+  </style>
 </head>
 <body>
   <div class="wrap">
@@ -31,6 +38,18 @@
       </section>
 
       <p class="small-screen-note">Demoen trenger en større skjerm. Åpne denne siden på en PC eller et nettbrett i liggende format.</p>
+
+      <div class="mobile-shots">
+        <p>Slik ser det ut. Eksemplene er laget med fiktive data.</p>
+        <figure>
+          <img src="../screenshots/builder.webp" width="1500" height="914" loading="lazy" alt="Malbyggeren i nettleseren. Malen «Svar på søknad» er åpen i editoren med utfyllingsfeltene Navn, Søknadsdato, Saksnummer og Innvilget beløp i teksten, og en gjenbrukbar del kalt Avslutning nederst. Til høyre vises malnavn, forfatter, beskrivelse og publiseringsstatus." />
+          <figcaption>Malbyggeren: skriv malen og sett inn felt og gjenbrukbare deler.</figcaption>
+        </figure>
+        <figure>
+          <img src="../screenshots/addin.webp" width="760" height="1400" loading="lazy" alt="Tillegget i Word og Outlook med skjemaet for malen «Svar på søknad». Feltene Navn, Søknadsdato, Saksnummer, Innvilget beløp og Telefon er fylt ut, og språket er satt til norsk bokmål." />
+          <figcaption>Tillegget: saksbehandleren fyller ut skjemaet og setter inn teksten.</figcaption>
+        </figure>
+      </div>
 
       <section class="demo-step" aria-labelledby="step-builder">
         <h2 id="step-builder"><span class="num">1</span>Lag eller endre en mal</h2>

@@ -202,12 +202,7 @@ section.block .faq-item h2 { font-size: 1rem; font-weight: 600; margin: 0 0 0.4r
 footer { padding: 2rem 0 3rem; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
 footer .wrap { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 
-.shots { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: start; }
-.shots figure { margin: 0; }
-.shots img { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow); }
-.shots figcaption { color: var(--muted); font-size: 0.9rem; margin-top: 0.75rem; }
 @media (max-width: 860px) {
-  .shots { grid-template-columns: 1fr; }
   .hero { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 1.5rem; }
   .steps, .features { grid-template-columns: 1fr; }
   .menu-toggle { display: inline-block; }
