@@ -15,6 +15,7 @@
     .mobile-shots figure { margin: 1.5rem 0 0; }
     .mobile-shots img { display: block; width: 100%; height: auto; border: 1px solid var(--border); border-radius: 12px; }
     .mobile-shots figcaption { color: var(--muted); font-size: 0.9rem; margin-top: 0.75rem; }
+    .paper:has(> p:only-child > br:only-child)::before { content: "Tomt dokument. Fyll ut skjemaet og trykk Sett inn, så vises teksten her."; display: block; margin-bottom: 0.75rem; color: #6c757d; font-style: italic; }
     @media (max-width: 860px) { .mobile-shots { display: block; margin-top: 1.5rem; } .reset-row { display: none; } }
   </style>
 </head>
@@ -42,11 +43,11 @@
       <div class="mobile-shots">
         <p>Slik ser det ut. Eksemplene er laget med fiktive data.</p>
         <figure>
-          <img src="../screenshots/builder.webp" width="1280" height="780" loading="lazy" alt="Malbyggeren i nettleseren. Malen «Tilbud om stilling» er åpen i editoren, med utfyllingsfeltene Mottaker, Stillingstittel, Startdato og Årslønn i teksten og en gjenbrukbar del kalt Avslutning nederst. Til høyre vises listen over feltene i malen." />
+          <a href="../screenshots/builder.webp"><img src="../screenshots/builder.webp" width="1280" height="780" loading="lazy" alt="Malbyggeren i nettleseren. Malen «Tilbud om stilling» er åpen i editoren, med utfyllingsfeltene Mottaker, Stillingstittel, Startdato og Årslønn i teksten og en gjenbrukbar del kalt Avslutning nederst. Til høyre vises listen over feltene i malen." /></a>
           <figcaption>Malbyggeren: skriv malen og sett inn felt og gjenbrukbare deler.</figcaption>
         </figure>
         <figure>
-          <img src="../screenshots/addin.webp" width="760" height="2000" loading="lazy" alt="Tillegget i Word og Outlook med skjemaet for malen «Tilbud om stilling». Feltene Mottaker og Stillingstittel er fylt ut, og språket er satt til norsk bokmål." />
+          <a href="../screenshots/addin.webp"><img src="../screenshots/addin.webp" width="760" height="2000" loading="lazy" alt="Tillegget i Word og Outlook med skjemaet for malen «Tilbud om stilling». Feltene Mottaker og Stillingstittel er fylt ut, og språket er satt til norsk bokmål." /></a>
           <figcaption>Tillegget: saksbehandleren fyller ut skjemaet og setter inn teksten.</figcaption>
         </figure>
       </div>
